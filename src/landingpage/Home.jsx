@@ -1,9 +1,13 @@
-import React from 'react';
+import Hero from './components/Hero';
+import Section2 from './components/Section2';
+import WhatWeDo from './components/WhatWeDo';
 
 const Home = () => {
   return (
     <div>
-      <p>TCU</p>
+      <Hero/>
+      <Section2/>
+      <WhatWeDo/>
     </div>
   );
 }
