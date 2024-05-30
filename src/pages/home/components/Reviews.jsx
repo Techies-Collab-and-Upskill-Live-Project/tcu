@@ -1,7 +1,7 @@
-import logo1 from "../../assets/xtp.png";
-import logo2 from "../../assets/quoter.png";
-import logo3 from "../../assets/caterV2.png";
-import logo4 from "../../assets/xtpv6.png";
+import logo1 from "../../../assets/xtp.png";
+import logo2 from "../../../assets/quoter.png";
+import logo3 from "../../../assets/caterV2.png";
+import logo4 from "../../../assets/xtpv6.png";
 
 const Reviews = () => {
   const reviews = [

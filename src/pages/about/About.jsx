@@ -1,10 +1,9 @@
-import React from 'react';
-import us from '../landingpage/assets/image 39.svg';
-import tufts from '../landingpage/assets/image 3.svg';
-import frame from '../landingpage/assets/Frame.svg';
-import chart from '../landingpage/assets/chart.svg';
-import vector from '../landingpage/assets/Vector.svg';
-import award from '../landingpage/assets/award.svg';
+import us from './assets/image 39.svg';
+import tufts from './assets/image 3.svg';
+import frame from './assets/Frame.svg';
+import chart from './assets/chart.svg';
+import vector from './assets/Vector.svg';
+import award from './assets/award.svg';
 const About = () => {
   return (
     <div className='bg-[#121212] text-[#ffffff] w-full h-full md:pl-[50px] md:pr-[50px] pl-[20px] pr-[20px]'>

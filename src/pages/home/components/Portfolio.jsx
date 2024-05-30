@@ -1,6 +1,6 @@
-import Button from "../../components/Button";
-import portfolio1 from "../../assets/portfolio1.png";
-import portfolio2 from "../../assets/portfolio2.png";
+import Button from "../../../components/Button";
+import portfolio1 from "../../../assets/portfolio1.png";
+import portfolio2 from "../../../assets/portfolio2.png";
 import { PiArrowCircleDownLight } from "react-icons/pi";
 
 const Portfolio = () => {
