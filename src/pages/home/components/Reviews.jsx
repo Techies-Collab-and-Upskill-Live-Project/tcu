@@ -31,21 +31,21 @@ const Reviews = () => {
     },
   ];
   return (
-    <div className="px-[20px] lg:px-[100px] flex flex-col mt-[90px]">
+    <div className="px-[20px] lg:px-[100px] flex flex-col mt-[49px] lg:mt-[90px]">
       <div className="flex flex-col items-center">
-        <h6 className="text-[#DBDBDB] text-[24px] leading-[32.4px] font-[500] text-center">
+        <h6 className="text-[#DBDBDB] text-[14px] lg:text-[24px] leading-[18.9px] lg:leading-[32.4px] font-[500] text-center">
           Reviews
         </h6>
-        <h2 className="text-white text-[40px] leading-[54px] text-center font-[700]">
+        <h2 className="text-white text-[20px] lg:text-[40px] leading-[27px] lg:leading-[54px] text-center font-[700]">
           What our talents have to say about us
         </h2>
-        <div className="mt-[60px] flex max-lg:flex-col lg:justify-between gap-[20px]">
+        <div className="mt-[21px] lg:mt-[60px] flex max-lg:flex-col lg:justify-between gap-[20px]">
           {reviews?.map((review, index) => (
-            <div key={index} className="flex font-geologica flex-col gap-y-[40px] bg-[#181818] rounded-[20px] px-[25px] pt-[21px] pb-[14px]">
+            <div key={index} className="flex font-geologica flex-col gap-y-[32px] lg:gap-y-[40px] bg-[#181818] rounded-[20px] px-[25px] pt-[21px] pb-[14px]">
               <p className="text-[16px] text-justify leading-[22px] text-[#EEEEEE] font-[300]">
                 {review.content}
               </p>
-              <div className="flex gap-x-[5px]">
+              <div className="flex gap-x-[10px] max-lg:items-center lg:gap-x-[5px]">
                 <img src={review.logo} className="size-[46px]" />
                 <div className="flex flex-col">
                   <p className="text-[16px] font-[500] leading-[20px] text-white">
