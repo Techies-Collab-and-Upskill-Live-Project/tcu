@@ -1,4 +1,4 @@
-import heroImg from "../../../public/assets/hero-img.png";
+import heroImg from "../../assets/hero-img.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import 'swiper/css';
 
