@@ -8,6 +8,7 @@ export default {
       },
       fontFamily: {
         satoshi: "'Satoshi', sans-serif",
+        geologica: '"Geologica", sans-serif'
       },
     },
   },
