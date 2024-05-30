@@ -6,10 +6,10 @@ import { FaLinkedin, FaTwitter } from "react-icons/fa"
 const Footer = () => {
   return (
     <footer className="sticky top-0 px-[133.43px] py-[29px]  w-full flex items-center bg-[#121212] font-satoshi  backdrop-blur-md">
-      <div className="w-full flex justify-between items-center ">
+      <div className="w-full flex max-lg:flex-col justify-between items-center ">
         <img src={logo} alt="logo" className="lg:w-[41px] lg:h-[53.66px] " />
         {/* Links */}
-        <div className="flex gap-x-[49px] font-[700] text-[16px] leading-[27px] tracking-[1%]">
+        <div className="flex max-lg:flex-col max-lg:text-center max-lg:mt-[48px] max-lg:gap-y-[49px] gap-x-[49px] font-[700] text-[16px] leading-[27px] tracking-[1%]">
           <Link
             to="/"
             className={ "text-[#F1F1F1]"
@@ -47,7 +47,7 @@ const Footer = () => {
           </Link>
         </div>
         {/* Socials */}
-        <div className="flex gap-x-[14.13px] text-white">
+        <div className="flex gap-x-[14.13px] max-lg:mt-[48px] text-white">
             <FaTwitter className=""/>
             <FaLinkedin/>
         </div>

@@ -5,7 +5,7 @@ import { PiArrowCircleDownLight } from "react-icons/pi";
 
 const Portfolio = () => {
   return (
-    <div className="px-[100px] flex flex-col mt-[50px]">
+    <div className="max-lg:w-full px-[20px] lg:px-[100px] flex flex-col mt-[50px]">
       <div className="flex flex-col">
         <p className="text-[#DBDBDB] text-[24px] leading-[32.4px] font-[500] text-center">
           Our Work
@@ -14,10 +14,10 @@ const Portfolio = () => {
           Our Portfolio
         </h3>
       </div>
-      <div className="flex flex-col justify-center gap-y-[32px] mt-[60px]  ">
+      <div className="max-lg:w-full flex flex-col justify-center gap-y-[32px] mt-[60px]  ">
         {/* UI/UX Design */}
-        <div className="flex justify-between border-b border-b-[#ACACAC] pb-[25px]">
-          <div className="flex flex-col gap-y-[20px] max-w-[483px]">
+        <div className="max-lg:w-full flex max-lg:flex-col lg:justify-between border-b border-b-[#ACACAC] pb-[25px]">
+          <div className="max-lg:w-full flex flex-col gap-y-[20px] lg:max-w-[483px]">
             <div className="flex gap-x-[18px]">
               <span className="text-[25px] font-[500] leading-[33.75px] text-[#4E4E4E]">
                 01
@@ -39,14 +39,14 @@ const Portfolio = () => {
             </Button>
           </div>
           {/* Portfolio images */}
-          <div className="flex ">
+          <div className="max-lg:w-full flex max-lg:justify-between  ">
             <img
               src={portfolio1}
-              className="w-[293px] h-[141px] rounded-[8px]"
+              className="w-[169px] lg:w-[293px] h-[141px] rounded-[8px]"
             />
             <img
               src={portfolio2}
-              className="w-[293px] h-[141px] rounded-[8px]"
+              className="w-[169px] lg:w-[293px] h-[141px] rounded-[8px]"
             />
           </div>
         </div>
@@ -59,7 +59,7 @@ const Portfolio = () => {
               Development
             </p>
           </div>
-          <PiArrowCircleDownLight className="text-white text-[64px]" />
+          <PiArrowCircleDownLight className="text-white text-[32px] lg:text-[64px]" />
         </div>
       </div>
     </div>
