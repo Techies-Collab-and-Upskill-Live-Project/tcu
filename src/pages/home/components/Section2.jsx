@@ -13,28 +13,28 @@ const Section2 = () => {
     partnerImg,
   ];
   return (
-    <div className="w-full flex flex-col mt-[67px] items-center">
+    <div className="w-full max-lg:px-[20px] flex flex-col mt-[32.94px] lg:mt-[67px] items-center">
       {/* Partners */}
       <div className="flex flex-col  gap-y-[22px] ">
         <h5 className="font-[500] text-[24px] leading-[32.4px] tracking-[1%] text-[#DBDBDB] text-center">
           Our Partners
         </h5>
-        <div className="flex gap-x-[71px] ">
+        <div className="flex gap-x-[23.46px] lg:gap-x-[71px] ">
           {partners.map((partner, index) => (
-            <img key={index} src={partner} className="rounded-[14.54px]" />
+            <img key={index} src={partner} className="rounded[4.81px] lg:rounded-[14.54px] max-lg:size-[26px]" />
           ))}
         </div>
       </div>
       {/* About us */}
-      <div className="flex gap-x-[42px] mt-[83.28px] self-start px-[100px]">
+      <div className="flex max-lg:flex-col lg:gap-x-[42px] mt-[83.28px] self-start lg:px-[100px]">
         {/* About */}
         <img src={aboutImg} alt="" className="rounded-[16px]" />
         <div className="flex flex-col">
-          <div className="w-[520px]">
+          <div className="lg:w-[520px]">
             <h6 className="text-[24px] text-[#DBDBDB] leading-[32.4px] font-[500]">
               About us
             </h6>
-            <h2 className="w-[227px] mt-[8px] text-white font-[700] text-[40px] leading-[54px]">
+            <h2 className="lg:w-[227px] mt-[8px] text-white font-[700] text-[40px] leading-[54px]">
               Collaborate and Upskill
             </h2>
             <p className="font-[500] mt-[15px] text-[18px] leading-[32.94px] text-[#D9D9D9]">
