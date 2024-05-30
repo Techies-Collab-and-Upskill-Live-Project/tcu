@@ -17,67 +17,6 @@ const TopNav = () => {
           />
         </Link>
         {/* Links */}
-        <div className="flex gap-x-[49px] font-[700] text-[16px] leading-[27px] tracking-[1%]">
-          <NavLink
-            to="/"
-            className={({ isActive, isPending }) =>
-              isPending
-                ? "text-white "
-                : isActive
-                ? "text-primary-green underline underline-offset-2 "
-                : "text-white"
-            }
-          >
-            Home
-          </NavLink>
-          <NavLink
-            to="/about"
-            className={({ isActive, isPending }) =>
-              isPending
-                ? "text-white "
-                : isActive
-                ? "text-primary-green underline underline-offset-2 "
-                : "text-white"
-            }
-          >
-            About us
-          </NavLink>
-          <NavLink
-            to="/portfolio"
-            className={({ isActive, isPending }) =>
-              isPending
-                ? "text-white "
-                : isActive
-                ? "text-primary-green underline underline-offset-2 "
-                : "text-white"
-            }
-          >
-            Portfolio
-          </NavLink>
-          <NavLink
-            to="/count"
-            className={({ isActive, isPending }) =>
-              isPending
-                ? "text-white "
-                : isActive
-                ? "text-primary-green underline underline-offset-2 "
-                : "text-white"
-            }
-          >
-            Contact us
-          </NavLink>
-          <NavLink
-            to="/join"
-            className={({ isActive, isPending }) =>
-              isPending
-                ? "text-white "
-                : isActive
-                ? "text-primary-green underline underline-offset-2 "
-                : "text-white"
-            }
-          >
-            Join our team
-          </NavLink>
         <HiOutlineBars2
           className="text-[32px] text-white lg:hidden"
           onClick={() => setIsOpen((prev) => !prev)}
