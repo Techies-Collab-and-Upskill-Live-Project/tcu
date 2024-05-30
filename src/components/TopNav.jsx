@@ -33,7 +33,7 @@ const TopNav = () => {
             About us
           </NavLink>
           <NavLink
-            to="/porfolio"
+            to="/portfolio"
             className={({ isActive, isPending }) =>
               isPending
                 ? "text-white "

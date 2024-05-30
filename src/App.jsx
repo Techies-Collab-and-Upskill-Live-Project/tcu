@@ -3,6 +3,8 @@ import Home from "./pages/home/Home";
 import About from './pages/about/About';
 import TopNav from "./components/TopNav";
 import Footer from "./components/Footer";
+import Portfolio from "./pages/Portfolio/Portfolio";
+import JoinTeam from "./pages/Join/JoinTeam";
 
 
 function App() {
@@ -13,6 +15,8 @@ function App() {
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='about' element={<About/>}/>
+        <Route path='portfolio' element={<Portfolio />}/>
+        <Route path='join' element={<JoinTeam />}/>
       </Routes>
       <Footer/>
       </div>
