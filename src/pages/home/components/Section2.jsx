@@ -1,6 +1,6 @@
-import partnerImg from "../../../public/assets/partner.png";
-import aboutImg from "../../../public/assets/aboutImg.png";
-import Button from "../../components/Button";
+import partnerImg from "../../../assets/partner.png";
+import aboutImg from "../../../assets/aboutImg.png";
+import Button from "../../../components/Button";
 
 const Section2 = () => {
   const partners = [

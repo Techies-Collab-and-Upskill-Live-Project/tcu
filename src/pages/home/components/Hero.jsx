@@ -1,10 +1,10 @@
-import heroImg from "../../../public/assets/hero-img.png";
+import heroImg from "../../../assets/hero-img.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import 'swiper/css';
 
 const Hero = () => {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col -mt-[105px]">
       <div className="">
         <Swiper>
           <SwiperSlide>
