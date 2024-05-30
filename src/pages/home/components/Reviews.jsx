@@ -31,7 +31,7 @@ const Reviews = () => {
     },
   ];
   return (
-    <div className="px-[100px] flex flex-col mt-[90px]">
+    <div className="px-[20px] lg:px-[100px] flex flex-col mt-[90px]">
       <div className="flex flex-col items-center">
         <h6 className="text-[#DBDBDB] text-[24px] leading-[32.4px] font-[500] text-center">
           Reviews
@@ -39,7 +39,7 @@ const Reviews = () => {
         <h2 className="text-white text-[40px] leading-[54px] text-center font-[700]">
           What our talents have to say about us
         </h2>
-        <div className="mt-[60px] flex justify-between gap-x-[20px]">
+        <div className="mt-[60px] flex max-lg:flex-col lg:justify-between gap-[20px]">
           {reviews?.map((review, index) => (
             <div key={index} className="flex font-geologica flex-col gap-y-[40px] bg-[#181818] rounded-[20px] px-[25px] pt-[21px] pb-[14px]">
               <p className="text-[16px] text-justify leading-[22px] text-[#EEEEEE] font-[300]">
