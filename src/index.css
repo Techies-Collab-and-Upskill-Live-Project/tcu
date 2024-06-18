@@ -1,3 +1,51 @@
+@import url("https://fonts.cdnfonts.com/css/satoshi");
+@import url("https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --primary-green: #13ba00;
+}
+
+
+
+
+
+
+.swiper-horizontal
+  > .swiper-pagination-bullets.swiper-pagination-bullets-dynamic,
+.swiper-pagination-horizontal.swiper-pagination-bullets.swiper-pagination-bullets-dynamic {
+  bottom: 54px;
+  left: 32px;
+}
+.swiper-pagination-bullets-dynamic {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+  /* border: 2px solid red; */
+  padding-left: 8px;
+  flex-grow: 0;
+  
+}
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet {
+  background-color: #939393;
+  border-radius: 12px;
+  width: 2.58px;
+  height: 12.9px;
+  border: none;
+  opacity: 1;
+  transform: rotate(0deg);
+  flex-grow: 0;
+  flex-shrink: 0;
+
+}
+.swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-main {
+  background-color: white;
+  border-radius: 12px;
+  width: 2.58px;
+  height: 59px;
+  transform: rotate(0deg);
+}
