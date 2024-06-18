@@ -1,6 +1,7 @@
 import partnerImg from "../../../assets/partner.png";
 import aboutImg from "../../../assets/aboutImg.png";
 import Button from "../../../components/Button";
+import { useNavigate } from "react-router-dom";
 
 const Section2 = () => {
   const partners = [
@@ -12,6 +13,7 @@ const Section2 = () => {
     partnerImg,
     partnerImg,
   ];
+  const navigateTo = useNavigate()
   return (
     <div className="w-full max-lg:px-[20px] flex flex-col mt-[32.94px] lg:mt-[67px] items-center">
       {/* Partners */}
@@ -62,7 +64,7 @@ const Section2 = () => {
                 </p>
               </div>
             </div>
-            <Button className={"mt-[22.81px] max-lg:w-full max-lg:text-[10.8px] max-lg:py-[7.2px] lg:mt-[38px]"}>Learn More</Button>
+            <Button onclick={()=>navigateTo('/about')} className={"mt-[22.81px] max-lg:w-full max-lg:text-[10.8px] max-lg:py-[7.2px] lg:mt-[38px]"}>Learn More</Button>
           </div>
         </div>
       </div>
