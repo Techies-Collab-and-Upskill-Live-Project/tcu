@@ -70,7 +70,7 @@ const TopNav = () => {
               About us
             </NavLink>
             <NavLink
-              to="/porfolio"
+              to="/portfolio"
               onClick={()=>setIsOpen(false)}
               className={({ isActive, isPending }) =>
                 isPending
@@ -83,7 +83,7 @@ const TopNav = () => {
               Portfolio
             </NavLink>
             <NavLink
-              to="/count"
+              to="/contact"
               onClick={()=>setIsOpen(false)}
               className={({ isActive, isPending }) =>
                 isPending
