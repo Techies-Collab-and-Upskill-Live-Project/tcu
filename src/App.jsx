@@ -4,6 +4,9 @@ import About from "./pages/about/About";
 import TopNav from "./components/TopNav";
 import Footer from "./components/Footer";
 import Hire from "./pages/hire/Hire";
+import Team from "./pages/team/Team";
+
+
 
 function App() {
   return (
@@ -14,6 +17,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="hire-us" element={<Hire />} />
+          <Route path="join" element={<Team />} />
         </Routes>
         <Footer />
       </div>
