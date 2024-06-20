@@ -9,6 +9,7 @@ import star from "../../../assets/star.svg";
 import Button from "../../../components/Button";
 import { IoIosArrowRoundForward } from "react-icons/io";
 import { MdKeyboardArrowRight } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   const slides = [
@@ -52,7 +53,7 @@ const Hero = () => {
                     {slide.desc}
                   </p>
                   <div className="flex gap-x-[40px] mt-[48px]">
-                    <Button>Join Our Team</Button>
+                    <Link to='join'><Button>Join Our Team</Button></Link>
                     <Button className={"text-white border-[#8C8C8C99]"}>
                       Work with us
                     </Button>

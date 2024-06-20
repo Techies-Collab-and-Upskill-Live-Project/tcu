@@ -18,9 +18,26 @@ import temitayo from './assets/Temitayo.svg';
 import simon from './assets/Simon.svg';
 import { IoLogoLinkedin} from "react-icons/io";
 import { RiTwitterXFill } from "react-icons/ri";
+import linkedin from './assets/linkedin.svg';
+import twitter from './assets/twitter.svg';
 
 
 const About = () => {
+
+  const whatWeDo = [
+    {
+      title: "Empowering tech talents globally.",
+      desc: "Our goal is to be the tower bridge to more work experience for 2 million tech talents around the globe.",
+    },
+    {
+      title: "Gain experience to get Jobs.",
+      desc: "Join our cohort to get certification, work experience to add to your resume, Employment possibility, Mentorship linkage.",
+    },
+    {
+      title: "Helping startups with technological services",
+      desc: "We have a seasoned team that cares for your startup more than you do. You wont believe until you try.",
+    },
+  ];
  
   const team =[
     {
@@ -55,28 +72,28 @@ const reviews = [
    name:'Cynthia Ejikeme',
    role:'Project Manager',
    feedback:'As one of the project managers in TCU 1,0, Working with designers and developers was a profound experience I hope to have again. We were able to seamlessly integrate a functional, user friendly platform.',
-   socials:'',
+   socials:linkedin,
   },
   {
    avatar:temitayo,
    name:'Temitayo Lawal',
    role:'Product Designer',
    feedback:'While leading the design team to create the Donation Trace platform, it was an interesting experience and process. Working with the developers to bring our project to life was challenging, yet beautiful.',
-   socials:'',
+   socials:twitter,
   },
   {
     avatar:simon,
     name:'Simon Favour',
     role:'Developer',
     feedback:'Working with others, has been a highly rewarding experience. The team’s dedication to excellence, innovative approach to problem-solving, and collaborative spirit have made the project both challenging and fulfilling.',
-    socials:'',
+    socials:linkedin,
   },
   {
     avatar:light,
     name:'Light',
     role:'Product Manager',
     feedback:'Collaborating with designers and developers  was an impactful experience. Through proper communication, we were able to integrate aesthetics and functionality, in creating a user-friendly platform.',
-    socials:'',
+    socials:twitter,
   },
 ]
 
@@ -111,33 +128,50 @@ const reviews = [
       
       <div className='flex float-right'><img src={wireclay} alt='wireclay'/></div>
       </div>
-      {/* <div className='flex flex-col items-center pt-[50px]'>
-        <p>What we do</p>
-        <p className='text-[20px] md:text-[25px] font-[700] text-center'>Empowering your brand with our holistic solution for growth</p>
-      </div> */}
-      <div className='flex flex-col md:flex-row gap-[2rem] mt-[30px] pt-[100px]'>
-          <div className='w-full md:w-[400px] h-[288px] md:h-[254px] border border-[#222222] bg-[#181818] rounded-[12px] flex flex-col justify-center items-center text-center p-[20px]'>
-            <p className='text-[19px] md:text-[32px] font-[700]'>Empowering tech talents globally.</p>
-            <p className='text-[11px] md:text-[18px]'>Our goal is to be the tower bridge to more work experience for 2 million tech talents around the globe.</p>
-          </div>
-          <div className='w-full md:w-[400px] h-[288px] md:h-[254px] border border-[#222222] bg-[#181818] rounded-[12px] flex flex-col justify-center items-center text-center p-[20px]'>
-            <p className='text-[19px] md:text-[32px] font-[700]'>Gain experience to get Jobs.</p>
-            <p className='text-[11px] md:text-[18px]'>Join our cohort to get certification, work experience to add to your resume, Employment possibility, Mentorship linkage.</p>
-          </div>
-          <div className='w-full md:w-[400px] h-[288px] md:h-[254px] border border-[#222222] bg-[#181818] rounded-[12px] flex flex-col justify-center items-center text-center p-[20px]'>
-            <p className='text-[19px] md:text-[32px] font-[700]'>Helping startups with technological services</p>
-            <p className='text-[11px] md:text-[18px]'>We have a seasoned team that cares for your startup more than you do. You won't believe it until you try.</p>
-          </div>
-      </div>
-      <div className='w-full   md:h-[263px]  h-[349px] border border-[#222222] bg-[#181818] rounded-[12px] mt-[20px] flex flex-col md:flex-row justify-between items-center text-center p-[30px]'>
-        <div className='w-full md:w-[312px]'>
-          <p className='text-[19px] md:text-[32px]'>Entry for our Cohort</p>
-          <p className='text-[11px] md:text-[18px]'>Grab an opportunity to work with a full team to build a digital product and have access to a community flowing with milk and honey.</p>
+
+      <div className=" mt-[100px] lg:mt-[100px] flex flex-col items-center">
+      <div className="">
+        {/* what we do */}
+        <div className="flex max-lg:flex-col gap-y-[32px] max-lg:mt-[32px] lg:gap-x-[20px] ">
+          {whatWeDo?.map((item, index) => (
+            <div
+              key={index}
+              className="flex flex-col gap-y-[28px] bg-[#181818] border-[2px] border-dashed border-[#292929] pb-[43px] rounded-[12px] lastpt-[36px]"
+            >
+              <div className="flex flex-col gap-y-[28px] bg-[#181818]  border-[#292929] px-[24px] pb-[56px] rounded-[12px] lg:last:pt-[36px] lg:h-[350px]">
+                <h2
+                  className={`text-[22px] lg:text-[32px] mt-[56px] ${
+                    index == 2 && "mt-[28px]"
+                  } font-[700] leading-[29.7px] lg:leading-[43.2px] text-white`}
+                >
+                  {item.title}
+                </h2>
+                <p className="text-[15px] lg:text-[16px] font-[500] leading-[25.8px] lg:leading-[27.52px] text-[#D9D9D9]">
+                  {item.desc}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
-        <button className="bg-primary-green text-white rounded-[44px] py-[12px] px-[27px] text-[18px] font-[700] leading-[24.3px] tracking-[1%] mt-[20px] md:mt-0">
+        {/* Entry for Cohort */}
+        <div className=" bg-[#181818] w-full flex max-lg:flex-col max-lg:gap-y-[60px] justify-center lg:gap-x-[160px] py-[60px] items-center mt-[32px] border-dashed max-lg:border-[2px] max-lg:border-[#292929] max-lg:rounded-[12px] lg:mt-[8px]">
+          <div className="max-lg:px-[17.38px] flex flex-col lg:w-[352px] gap-y-[28px]">
+            <h4 className="font-[700] text-[22px] lg:text-[32px] leading-[29.7px] lg:leading-[43.2px] text-white">
+              Entry for our Cohort
+            </h4>
+            <p className="text-[14px] text-[#D9D9D9] font-[500] leading-[24.08px]">
+              Grab an opportunity to work with a full team to build a digital
+              product and have access to a community flowing with milk and
+              honey.{" "}
+            </p>
+          </div>
+          <Button className={"h-fit px-[27px] max-lg:text-[12.42px] w-full lg:w-[213px] max-lg:py-[16.78px]"}>
             Fill entry form
-        </button>
+          </Button>
+        </div>
       </div>
+    </div>
+      
       <div className='flex'><img src={spiralclay} alt='spiralclay'/></div>
       <div className='flex flex-col items-center pt-[50px]'>
         <p>Our Team</p>
@@ -170,69 +204,24 @@ const reviews = [
       <div className='grid md:grid-cols-4 grid-cols-2 gap-[1rem] items-center justify-center'>
         {reviews && reviews.map((review, index) => (
           <div key={index} className='border border-[#191919] border-t-[#121212] border-b-[#121212] w-[165px] h-[250px] md:w-[280px] md:h-[304px] md:pl-[15px] pl-[8px]'>
-            <div className='flex pt-[20px]'>
+            <div className='flex gap-[1rem] pt-[20px]'>
                 <img src={review.avatar} alt='avatar'/>
                 <div>
                   <p className='md:text-[16px] text-[12px] font-[700]'>{review.name}</p>
                   <p className='md:text-[12px] text-[10px] font-[400]'>{review.role}</p>
                 </div>
             </div>
-            <div className='md:w-[253px] w-[160]  h-[110px]'>
+            <div className='md:w-[253px] w-[160]  '>
               <p className='md:text-[14px] text-[10px] font-[500] pt-[20px]'>{review.feedback}</p>
             </div>
-          </div>
+            <div className='pt-[20px]'>
+              <img src={review.socials} alt='socials'/>
+            </div>
+            </div>
+           
         ))}
+         
       </div>
-      {/* <div className='flex flex-col md:flex-row gap-[2rem] mt-[30px]'>
-          <div className='w-full md:w-[400px] h-[288px] md:h-[254px] border border-[#222222] bg-[#181818] rounded-[12px] flex flex-col justify-center items-center text-center p-[20px]'>
-             <p>Second Layer is not just a service provider; we are partners in your project's success. We offer educational resources and workshops to empower project teams with the best practices and latest technologies.</p>
-             <div className='flex gap-[2rem] pt-[20px]'>
-                <div className='w-[46px] h-[46px] bg-[#ffffff] rounded-full flex justify-center items-center'>
-                <img src={frame} alt='frame'/>
-                </div>
-                <div>
-                    <p>XTP V.6</p>
-                    <p>Audit . 1/27</p>
-                </div>
-             </div>
-          </div>
-          <div className='w-full md:w-[400px] h-[288px] md:h-[254px] border border-[#222222] bg-[#181818] rounded-[12px] flex flex-col justify-center items-center text-center p-[20px]'>
-            <p>Second Layer is not just a service provider; we are partners in your project's success. We offer educational resources and workshops to empower project teams with the best practices and latest technologies.</p>
-            <div className='flex gap-[2rem] pt-[20px]'>
-                <div className='w-[46px] h-[46px] bg-[#000000] rounded-full flex justify-center items-center'>
-                <img src={chart} alt='chart'/>
-                </div>
-                <div>
-                    <p>Quoter X</p>
-                    <p>Audit . 1/27</p>
-                </div>
-             </div>
-          </div>
-          <div className='w-full md:w-[400px] h-[288px] md:h-[254px] border border-[#222222] bg-[#181818] rounded-[12px] flex flex-col justify-center items-center text-center p-[20px]'>
-           <p>Second Layer is not just a service provider; we are partners in your project's success. We offer educational resources and workshops to empower project teams with the best practices and latest technologies.</p>
-           <div className='flex gap-[2rem] pt-[20px]'>
-                <div className='w-[46px] h-[46px] bg-[#ffffff] rounded-full flex justify-center items-center'>
-                <img src={vector} alt='vector'/>
-                </div>
-                <div>
-                    <p>Cater V2</p>
-                    <p>Audit . 1/27</p>
-                </div>
-             </div>
-          </div>
-          <div className='w-full md:w-[400px] h-[288px] md:h-[254px] border border-[#222222] bg-[#181818] rounded-[12px] flex flex-col justify-center items-center text-center p-[20px]'>
-            <p>Second Layer is not just a service provider; we are partners in your project's success. We offer educational resources and workshops to empower project teams with the best practices and latest technologies.</p>
-            <div className='flex gap-[2rem] pt-[20px]'>
-                <div className='w-[46px] h-[46px] bg-[#ffcf0f] rounded-full flex justify-center items-center'>
-                <img src={award} alt='award'/>
-                </div>
-                <div>
-                    <p>XTP V.6</p>
-                    <p>Audit . 1/27</p>
-                </div>
-             </div>
-          </div>
-      </div> */}
     </div>
   )
 }
