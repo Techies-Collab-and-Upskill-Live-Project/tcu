@@ -4,6 +4,12 @@ import About from "./pages/about/About";
 import TopNav from "./components/TopNav";
 import Footer from "./components/Footer";
 import Hire from "./pages/hire/Hire";
+import Team from "./pages/team/Team";
+import PortfolioGrid from "./pages/portfolio/PortfolioGrid";
+import Portfolio from "./pages/portfolio/Portfolio";
+import ContactPage from "./pages/contactPage/ContactPage";
+
+
 
 function App() {
   return (
@@ -14,6 +20,9 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="hire-us" element={<Hire />} />
+          <Route path="join" element={<Team />} />
+          <Route path="portfolio" element={<Portfolio />} />
+          <Route path="contact" element={<ContactPage />} />
         </Routes>
         <Footer />
       </div>
