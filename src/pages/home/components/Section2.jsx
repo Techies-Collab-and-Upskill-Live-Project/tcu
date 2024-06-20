@@ -1,18 +1,9 @@
-import partnerImg from "../../../assets/partner.png";
 import aboutImg from "../../../assets/team.png";
 import Button from "../../../components/Button";
 import { useNavigate } from "react-router-dom";
 
 const Section2 = () => {
-  const partners = [
-    partnerImg,
-    partnerImg,
-    partnerImg,
-    partnerImg,
-    partnerImg,
-    partnerImg,
-    partnerImg,
-  ];
+  
   const navigateTo = useNavigate();
   return (
     <div className="w-full max-lg:px-[20px] flex flex-col mt-[32.94px] lg:mt-[67px] items-center">
