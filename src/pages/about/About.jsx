@@ -16,6 +16,8 @@ import ejikeme from './assets/Ejikeme.svg';
 import light from './assets/Light.svg';
 import temitayo from './assets/Temitayo.svg';
 import simon from './assets/Simon.svg';
+import { IoLogoLinkedin} from "react-icons/io";
+import { RiTwitterXFill } from "react-icons/ri";
 
 
 const About = () => {
@@ -103,15 +105,17 @@ const reviews = [
     
         </div>
       </div>
+      <div>
       <p className='text-[11px] md:text-[18px] pt-[20px] md:pt-[80px]'>We believe everyone deserves the opportunity to participate in the exciting world of technology. Our unique platform provides a collaborative learning environment for aspiring developers, designers, and other tech enthusiasts. Here, you'll gain practical experience working alongside industry professionals on real-world projects. It's not just learning the ropes, it's contributing to cutting-edge solutions while building your skillset and portfolio.</p>
       <p className='text-[11px] md:text-[18px] pt-[20px]'>At TCU, we foster a collaborative spirit. Our experienced team mentors newcomers, while fresh perspectives inject new ideas into the development process. This synergy fuels innovation and allows us to create truly groundbreaking tech solutions.</p>
       
-      <div className='flex float-end'><img src={wireclay} alt='wireclay'/></div>
-      <div className='flex flex-col items-center pt-[50px]'>
+      <div className='flex float-right'><img src={wireclay} alt='wireclay'/></div>
+      </div>
+      {/* <div className='flex flex-col items-center pt-[50px]'>
         <p>What we do</p>
         <p className='text-[20px] md:text-[25px] font-[700] text-center'>Empowering your brand with our holistic solution for growth</p>
-      </div>
-      <div className='flex flex-col md:flex-row gap-[2rem] mt-[30px]'>
+      </div> */}
+      <div className='flex flex-col md:flex-row gap-[2rem] mt-[30px] pt-[100px]'>
           <div className='w-full md:w-[400px] h-[288px] md:h-[254px] border border-[#222222] bg-[#181818] rounded-[12px] flex flex-col justify-center items-center text-center p-[20px]'>
             <p className='text-[19px] md:text-[32px] font-[700]'>Empowering tech talents globally.</p>
             <p className='text-[11px] md:text-[18px]'>Our goal is to be the tower bridge to more work experience for 2 million tech talents around the globe.</p>
@@ -141,35 +145,40 @@ const reviews = [
            <div className='flex md:flex-row flex-col gap-[1rem]'>
             {team && team.map((teams, index) => (
             <div key={index}>
-             <img src={teams.img} alt='profile' className=' md:w-[296px] md:h-[205px] w-[343px] h-[205px] rounded-t-[12px]'/>
-            <div className='bg-[#181818] md:w-[296px] md:h-[150px] w-[343px] h-[202px] rounded-b-[12px] flex flex-col justify-center items-center'>
+             <img src={teams.img} alt='profile' className=' md:w-[260px] md:h-[205px] w-[343px] h-[205px] rounded-t-[12px]'/>
+            <div className='bg-[#181818] md:w-[260px] md:h-[150px] w-[343px] h-[202px] rounded-b-[12px] flex flex-col justify-center items-center mt-[-12px]'>
                <p className='md:text-[20px] font-[700]'>{teams.name}</p>
-               <p className='md:text-[14px] font-[400]'>{teams.role}</p>
+               <p className='md:text-[14px] font-[400] w-[180px] flex items-center'>{teams.role}</p>
+               <div className='flex gap-[1.5rem] pt-[20px] items-center'>
+                <IoLogoLinkedin  className='w-[20px] h-[20px]'/>
+                <RiTwitterXFill/>
             </div>
+            </div>
+            
             </div>
             ))}
-            
+            <img src={ringclay} alt='ringclay' className='flex float-end md:ml-[-60px] justify-center'/>
            </div>
-          
+           
         </div>
-        <img src={ringclay} alt='ringclay' className='flex float-end'/>
+        
       </div>
-      <div className='flex flex-col items-center pt-[50px]'>
-        <p>Reviews</p>
-        <p className='text-[20px] md:text-[25px]'>What our interns say about us</p>
+      <div className='flex flex-col items-center pt-[50px] pb-[30px]'>
+        <p className='text-[14px] md:text-[32px] font-[500]'>Reviews</p>
+        <p className='text-[20px] font-[700] md:text-[48px]'>What our interns say about us</p>
       </div>
       <div className='grid md:grid-cols-4 grid-cols-2 gap-[1rem] items-center justify-center'>
         {reviews && reviews.map((review, index) => (
-          <div key={index} className='border border-[#191919] w-[100px] h-[185px] md:w-[297px] md:h-[304px]'>
-            <div className='flex '>
+          <div key={index} className='border border-[#191919] border-t-[#121212] border-b-[#121212] w-[165px] h-[250px] md:w-[280px] md:h-[304px] md:pl-[15px] pl-[8px]'>
+            <div className='flex pt-[20px]'>
                 <img src={review.avatar} alt='avatar'/>
                 <div>
-                  <p>{review.name}</p>
-                  <p>{review.role}</p>
+                  <p className='md:text-[16px] text-[12px] font-[700]'>{review.name}</p>
+                  <p className='md:text-[12px] text-[10px] font-[400]'>{review.role}</p>
                 </div>
             </div>
-            <div className='w-[253px] h-[110px]'>
-              <p>{review.feedback}</p>
+            <div className='md:w-[253px] w-[160]  h-[110px]'>
+              <p className='md:text-[14px] text-[10px] font-[500] pt-[20px]'>{review.feedback}</p>
             </div>
           </div>
         ))}
