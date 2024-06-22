@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { twMerge } from 'tailwind-merge';
 import Button from '../components/Button';
+import Download from '../components/Download';
 
 const skills = [
   "UI/UX Design",
@@ -41,7 +42,7 @@ const Join = ({
 
   return (
     <div className={twMerge(`flex flex-col justify-center items-center min-h-screen`, className)}>
-      <div className="flex flex-col justify-center items-center bg-[#181818] w-full max-w-[763px] p-5 rounded-[12px]">
+      <div className="flex flex-col justify-center items-center bg-[#181818]  max-w-[720px] w-full p-5 rounded-[12px]">
         <p className="md:text-[36px] text-[16px] font-[700] text-[#ffffff]">TCU 2.0 Entry Form</p>
         <p className="md:text-[20px] text-[10px] font-[400] text-[#9c9c9c]">
           Please answer all the questions, it will help us know you better. Compulsory questions are indicated with <span className="text-[#e30000]">*</span>
@@ -103,7 +104,7 @@ const Join = ({
                   value={skill}
                   checked={selectedSkill === skill}
                   onChange={handleSkillChange}
-                  className="mr-2"
+                  className="mr-2 accent-[#181818]"
                 />
                 <span className="text-[#9c9c9c] md:text-[15px] text-[12px]">{skill}</span>
               </label>
@@ -114,6 +115,18 @@ const Join = ({
               className='bg-[#181818] text-[#4d4d4d] p-[10px] border-b-[2px] border-[#4d4d4d] outline-none'
             />
           </div>
+        </div>
+        
+        <div className="bg-[#181818] w-full rounded-[12px] p-[20px] mt-[20px]">
+          <label className="text-[#9c9c9c] md:text-[18px] text-[12px] font-[700]">
+          Upload a certificate of related field <i>(optional)</i>
+            {/* <input
+              type="text"
+              placeholder="Enter your birth date"
+              className={twMerge(`bg-[#181818] w-full text-[#4d4d4d] p-[10px] border-b-[2px] border-[#4d4d4d] outline-none`, inputClass)}
+            /> */}
+            <Download/>
+          </label>
         </div>
 
         <div className="bg-[#181818] w-full rounded-[12px] p-[20px] mt-[20px]">
@@ -127,7 +140,7 @@ const Join = ({
                   value={experience}
                   checked={selectedExperience === experience}
                   onChange={handleExperienceChange}
-                  className="mr-2"
+                  className="mr-2 accent-[#181818]"
                 />
                 <span className="text-[#9c9c9c] md:text-[15px] text-[12px]">{experience}</span>
               </label>
@@ -157,7 +170,7 @@ const Join = ({
                   value={commitment}
                   checked={selectedCommitment === commitment}
                   onChange={handleCommitmentChange}
-                  className="mr-2"
+                  className="mr-2 accent-[#181818]"
                 />
                 <span className="text-[#9c9c9c] md:text-[15px] text-[12px]">{commitment}</span>
               </label>
@@ -167,7 +180,7 @@ const Join = ({
 
         <div className="bg-[#181818] w-full rounded-[12px] p-[20px] mt-[20px]">
           <label className="text-[#9c9c9c] md:text-[18px] text-[12px] font-[700]">
-            Birthday Date (optional) <span className="text-[#e30000]">*</span>
+            Birthday Date <i>(optional)</i>
             <input
               type="text"
               placeholder="Enter your birth date"
