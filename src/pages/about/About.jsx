@@ -20,6 +20,7 @@ import { IoLogoLinkedin} from "react-icons/io";
 import { RiTwitterXFill } from "react-icons/ri";
 import linkedin from './assets/linkedin.svg';
 import twitter from './assets/twitter.svg';
+import { Link } from "react-router-dom";
 
 
 const About = () => {
@@ -154,47 +155,60 @@ const reviews = [
           ))}
         </div>
         {/* Entry for Cohort */}
-        <div className=" bg-[#181818] w-full flex max-lg:flex-col max-lg:gap-y-[60px] justify-center lg:gap-x-[160px] py-[60px] items-center mt-[32px] border-dashed max-lg:border-[2px] max-lg:border-[#292929] max-lg:rounded-[12px] lg:mt-[8px]">
-          <div className="max-lg:px-[17.38px] flex flex-col lg:w-[352px] gap-y-[28px]">
-            <h4 className="font-[700] text-[22px] lg:text-[32px] leading-[29.7px] lg:leading-[43.2px] text-white">
-              Entry for our Cohort
-            </h4>
-            <p className="text-[14px] text-[#D9D9D9] font-[500] leading-[24.08px]">
-              Grab an opportunity to work with a full team to build a digital
-              product and have access to a community flowing with milk and
-              honey.{" "}
-            </p>
-          </div>
-          <Button className={"h-fit px-[27px] max-lg:text-[12.42px] w-full lg:w-[213px] max-lg:py-[16.78px]"}>
-            Fill entry form
-          </Button>
-        </div>
+        <div className="bg-[#181818] w-full flex flex-col lg:flex-row justify-center lg:gap-x-[180px] gap-[2rem] py-[60px] md:items-center items-start  mt-[32px] border-dashed border-[2px] border-[#292929] rounded-[12px] lg:mt-[8px]">
+  <div className="px-[17.38px] flex flex-col lg:w-[352px] gap-y-[28px]">
+    <h4 className="font-[700] text-[22px] lg:text-[32px] leading-[29.7px] lg:leading-[43.2px] text-white">
+      Entry for our Cohort
+    </h4>
+    <p className="text-[14px] text-[#D9D9D9] font-[500] leading-[24.08px]">
+      Grab an opportunity to work with a full team to build a digital
+      product and have access to a community flowing with milk and
+      honey.
+    </p>
+  </div>
+  <Link to='/join'>
+    <Button className="h-fit px-[27px] text-[14px] lg:text-[16px] w-full lg:w-[213px] py-[16.78px] ml-[20px]">
+      Fill entry form
+    </Button>
+  </Link>
+</div>
+
       </div>
     </div>
       
       <div className='flex'><img src={spiralclay} alt='spiralclay'/></div>
       <div className='flex flex-col items-center pt-[50px]'>
-        <p>Our Team</p>
-        <div className='flex flex-wrap justify-center gap-[1rem] md:gap-[5rem] pt-[15px]'> 
-           <div className='flex md:flex-row flex-col gap-[1rem]'>
-            {team && team.map((teams, index) => (
-            <div key={index}>
-             <img src={teams.img} alt='profile' className=' md:w-[260px] md:h-[205px] w-[343px] h-[205px] rounded-t-[12px]'/>
-            <div className='bg-[#181818] md:w-[260px] md:h-[150px] w-[343px] h-[202px] rounded-b-[12px] flex flex-col justify-center items-center mt-[-12px]'>
-               <p className='md:text-[20px] font-[700]'>{teams.name}</p>
-               <p className='md:text-[14px] font-[400] w-[180px] flex items-center'>{teams.role}</p>
-               <div className='flex gap-[1.5rem] pt-[20px] items-center'>
-                <IoLogoLinkedin  className='w-[20px] h-[20px]'/>
-                <RiTwitterXFill/>
+        <p className='md:text-[48px] text-[20px] font-[700]'>Our Team</p>
+        <div className='flex flex-wrap justify-center gap-[1rem] md:gap-[5rem] pt-[15px]'>
+      <div className='flex flex-wrap gap-[1rem] justify-center'>
+        {team && team.map((teams, index) => (
+          <div key={index} className='flex flex-col items-center'>
+            <div className='overflow-hidden rounded-t-[12px]'>
+            <img 
+              src={teams.img} 
+              alt='profile' 
+              className='md:w-[260px] w-[260px] h-[180px]' 
+            />
             </div>
+            <div 
+              className='bg-[#181818] md:w-[260px] w-[260px] md:h-[150px] h-[140px] mt-[-12px] rounded-b-[12px] flex flex-col justify-center items-center'
+            >
+              <p className='md:text-[20px] text-[16px] font-[700] text-center'>{teams.name}</p>
+              <p className='md:text-[14px] text-[12px] font-[400] w-[180px] text-center'>{teams.role}</p>
+              <div className='flex gap-[1.5rem] pt-[20px] items-center'>
+                <IoLogoLinkedin className='w-[20px] h-[20px]'/>
+                <RiTwitterXFill className='w-[20px] h-[20px]'/>
+              </div>
             </div>
-            
-            </div>
-            ))}
-            <img src={ringclay} alt='ringclay' className='flex float-end md:ml-[-60px] justify-center'/>
-           </div>
-           
-        </div>
+          </div>
+        ))}
+      </div>
+      <img 
+        src={ringclay} 
+        alt='ringclay' 
+        className='md:ml-[-60px] flex justify-center mt-4 md:mt-0' 
+      />
+    </div>
         
       </div>
       <div className='flex flex-col items-center pt-[50px] pb-[30px]'>
