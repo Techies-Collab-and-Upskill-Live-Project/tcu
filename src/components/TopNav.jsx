@@ -93,7 +93,7 @@ const TopNav = () => {
                   : "text-white"
               }
             >
-              Contact us
+              Service
             </NavLink>
             {/* <NavLink
               to="/join"
