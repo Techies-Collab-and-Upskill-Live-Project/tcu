@@ -8,12 +8,14 @@ import PortfolioGrid from "./pages/portfolio/PortfolioGrid";
 import Portfolio from "./pages/portfolio/Portfolio";
 import ContactPage from "./pages/contactPage/ContactPage";
 import Join from "./join/Join";
+import { Toaster } from "sonner";
 
 
 
 function App() {
   return (
     <Router>
+      <Toaster />
       <TopNav />
       <div className="relative pt-[54px] lg:pt-[105px] bg-[#121212] font-satoshi">
         <Routes>
