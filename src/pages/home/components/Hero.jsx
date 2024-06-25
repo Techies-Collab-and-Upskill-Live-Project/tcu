@@ -64,7 +64,7 @@ const Hero = () => {
                     </Link>
                     <Button
                       className={
-                        "text-white border-[#8C8C8C99] max-lg:text-[12px] max-lg:leading-[16.2px] max-lg:px-[16px]"
+                        "text-white border-[#8C8C8C99] max-lg:text-[12px] max-lg:leading-[16.2px] max-lg:px-[16px] max-lg:py-[8px]"
                       }
                     >
                       Work with us

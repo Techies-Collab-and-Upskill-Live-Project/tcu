@@ -1,10 +1,17 @@
+import React, { useState } from "react";
 import { GoUpload } from "react-icons/go";
 
 const Download = () => {
-  const handleFIleUpload = (e) => {
-    const file = e.target.files;
-    console.log(file);
+  const [fileName, setFileName] = useState("");
+
+  const handleFileUpload = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setFileName(file.name);
+      console.log(file.name);
+    }
   };
+
   return (
     <div className="w-96 Satoshi pt-[20px]">
       <label>
@@ -18,9 +25,14 @@ const Download = () => {
           id="dropzone-file"
           type="file"
           className="hidden"
-          onChange={handleFIleUpload}
+          onChange={handleFileUpload}
         />
       </label>
+      {fileName && (
+        <p className="md:text-[20px] text-[12px] font-[400] text-[#4D4D4D] pt-[20px]">
+          File: {fileName}
+        </p>
+      )}
       <p className="md:text-[20px] text-[12px] font-[400] text-[#4D4D4D] pt-[20px]">
         .Jpeg, .png, .pdf, .docx
       </p>

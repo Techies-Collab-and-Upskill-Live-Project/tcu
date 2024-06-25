@@ -18,12 +18,13 @@ const experiences = ["Novice", "Intermediate", "Advanced", "Expert"];
 
 const commitments = ["Yes", "No", "Maybe"];
 
+
+
 const Join = ({
   className,
-  descClass,
   formClass,
   inputClass,
-  textAreaClass,
+  
 }) => {
   const [formEntries, setFormEntries] = useState({
     certificate: "",
@@ -38,7 +39,25 @@ const Join = ({
     birthdate: "",
   });
 
+  const [validity, setValidity] = useState({
+    email: null,
+    full_name: null,
+    twitter_handle: null,
+    linkedin: null,
+  });
+
   const [isLoading, setIsLoading] = useState(false);
+
+  const validateEmail = (email) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(String(email).toLowerCase());
+  };
+
+  const validateUrl = (url) => {
+    const re = /^(https?:\/\/)?([\w\-])+\.{1}([a-zA-Z]{2,63})([\/\w \.-]*)*\/?$/;
+    return re.test(String(url).toLowerCase());
+  };
+
 
   const handleSkillChange = (event) => {
     console.log(event.target.value);
@@ -82,13 +101,24 @@ const Join = ({
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    let isValid = true;
+    if (name === 'email') {
+      isValid = validateEmail(value);
+    } else if (name === 'twitter_handle' || name === 'linkedin') {
+      isValid = validateUrl(value);
+    }
+
     setFormEntries((prevVal) => ({ ...prevVal, [name]: value }));
+    setValidity((prevVal) => ({ ...prevVal, [name]: isValid }));
   };
+
+
+  
 
   return (
     <div
       className={twMerge(
-        `flex flex-col justify-center items-center min-h-screen`,
+        `flex flex-col justify-center items-center min-h-screen font-satoshi`,
         className
       )}
     >
@@ -123,7 +153,8 @@ const Join = ({
                 value={formEntries.email}
                 placeholder="Eg samplemail1234@gmail.com"
                 className={twMerge(
-                  `bg-[#181818] w-full text-[#4d4d4d] p-[10px] border-b-[2px] border-[#4d4d4d] outline-none`,
+                  `bg-[#181818] w-full text-[#4d4d4d] p-[10px] border-b-[2px] border-[#4d4d4d] outline-none placeholder-[#4d4d4d]`,
+                  validity.email === null ? 'border-[#4d4d4d]' : (validity.email ? 'border-green-500' : 'border-red-500'),
                   inputClass
                 )}
               />
@@ -141,7 +172,8 @@ const Join = ({
                 value={formEntries.full_name}
                 placeholder="Eg John Doe"
                 className={twMerge(
-                  `bg-[#181818] w-full text-[#4d4d4d] p-[10px] border-b-[2px] border-[#4d4d4d] outline-none`,
+                  `bg-[#181818] w-full text-[#4d4d4d] p-[10px] border-b-[2px] border-[#4d4d4d] outline-none placeholder-[#4d4d4d]`,
+                  validity.full_name === null ? 'border-[#4d4d4d]' : (validity.full_name ? 'border-green-500 ' : 'border-red-500'),
                   inputClass
                 )}
               />
@@ -158,7 +190,8 @@ const Join = ({
                 value={formEntries.twitter_handle}
                 placeholder="Eg https://x.com/account-name"
                 className={twMerge(
-                  `bg-[#181818] w-full text-[#4d4d4d] p-[10px] border-b-[2px] border-[#4d4d4d] outline-none`,
+                  `bg-[#181818] w-full text-[#4d4d4d] p-[10px] border-b-[2px] border-[#4d4d4d] outline-none placeholder-[#4d4d4d]`,
+                  validity.twitter_handle === null ? 'border-[#4d4d4d]' : (validity.twitter_handle ? 'border-green-500' : 'border-red-500'),
                   inputClass
                 )}
               />
@@ -175,7 +208,8 @@ const Join = ({
                 value={formEntries.linkedin}
                 placeholder="Eg https://linkedin.com/account-name"
                 className={twMerge(
-                  `bg-[#181818] w-full text-[#4d4d4d] p-[10px] border-b-[2px] border-[#4d4d4d] outline-none`,
+                  `bg-[#181818] w-full text-[#4d4d4d] p-[10px] border-b-[2px] border-[#4d4d4d] outline-none placeholder-[#4d4d4d]`,
+                  validity.linkedin === null ? 'border-[#4d4d4d]' : (validity.linkedin ? 'border-[#13ba00]' : 'border-[#d61010]'),
                   inputClass
                 )}
               />
@@ -201,7 +235,7 @@ const Join = ({
                   onChange={handleSkillChange}
                   className="mr-2 accent-[#181818]"
                 />
-                <span className="text-[#9c9c9c] md:text-[15px] text-[12px]">
+                <span className="text-[#9c9c9c] md:text-[18px] text-[12px]">
                   {skill}
                 </span>
               </label>
@@ -218,7 +252,7 @@ const Join = ({
                   skill: e.target.value,
                 }))
               }
-              className="bg-[#181818] text-[#4d4d4d] p-[10px] border-b-[2px] border-[#4d4d4d] outline-none"
+              className="bg-[#181818] text-[#4d4d4d] p-[10px] border-b-[2px] border-[#4d4d4d] outline-none placeholder-[#4d4d4d]"
             />
           </div>
         </div>
@@ -253,7 +287,7 @@ const Join = ({
                   onChange={handleExperienceChange}
                   className="mr-2 accent-[#181818]"
                 />
-                <span className="text-[#9c9c9c] md:text-[15px] text-[12px]">
+                <span className="text-[#9c9c9c] md:text-[18px] text-[12px]">
                   {experience}
                 </span>
               </label>
@@ -273,7 +307,7 @@ const Join = ({
               onChange={handleChange}
               value={formEntries.about_skill}
               className={twMerge(
-                `bg-[#181818] w-full text-[#4d4d4d] p-[10px] border-b-[2px] border-[#4d4d4d] outline-none`,
+                `bg-[#181818] w-full text-[#4d4d4d] p-[10px] border-b-[2px] border-[#4d4d4d] outline-none placeholder-[#4d4d4d]`,
                 inputClass
               )}
             />
@@ -297,7 +331,7 @@ const Join = ({
                   onChange={handleCommitmentChange}
                   className="mr-2 accent-[#181818]"
                 />
-                <span className="text-[#9c9c9c] md:text-[15px] text-[12px]">
+                <span className="text-[#9c9c9c] md:text-[18px] text-[12px]">
                   {commitment}
                 </span>
               </label>
@@ -315,14 +349,14 @@ const Join = ({
               onChange={handleChange}
               placeholder="Enter your birth date"
               className={twMerge(
-                `bg-[#181818] w-full text-[#4d4d4d] p-[10px] border-b-[2px] border-[#4d4d4d] outline-none`,
+                `bg-[#181818] w-full text-[#4d4d4d] p-[10px] border-b-[2px] border-[#4d4d4d] outline-none placeholder-[#4d4d4d]`,
                 inputClass
               )}
             />
           </label>
         </div>
 
-        <Button  disabled={isLoading}  className="w-full bg-[#ffffff] rounded-[4px] mt-[20px] text-[#121212] font-[700] text-[15px]">
+        <Button  disabled={isLoading}  className="w-full bg-[#ffffff] border-[#ffffff] rounded-[4px] mt-[20px] text-[#121212] font-[700] text-[15px]">
           {isLoading ? "Submitting..." : "  Submit"}
         </Button>
       </form>
