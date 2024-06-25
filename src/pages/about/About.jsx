@@ -99,7 +99,7 @@ const reviews = [
 ]
 
   return (
-    <div className='bg-[#121212] text-[#ffffff] w-full h-full px-[20px] md:px-[50px]'>
+    <div className='bg-[#121212] text-[#ffffff] w-full h-full px-[20px] md:px-[50px] font-satoshi'>
       <div className='flex flex-col md:flex-row gap-[20px]'>
         <div className='w-full md:w-[578px] h-[318px] md:h-[529px]'>
             <img src={us} alt='us' className='rounded-[16px] w-full h-full object-cover'/> 
@@ -119,7 +119,7 @@ const reviews = [
                     <p className='text-[11px] md:text-[18px]'>Interns</p>
                 </div>
             </div>
-            <Button className={"mt-[22.81px] max-lg:w-full max-lg:text-[10.8px] max-lg:py-[7.2px] lg:mt-[38px]"}>Learn More</Button>
+            {/* <Button className={"mt-[22.81px] max-lg:w-full max-lg:text-[10.8px] max-lg:py-[7.2px] lg:mt-[38px]"}>Learn More</Button> */}
     
         </div>
       </div>
