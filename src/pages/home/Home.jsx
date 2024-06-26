@@ -18,7 +18,7 @@ const Home = () => {
       {/* <div className='flex justify-center items-center float-right w-[100px] h-[100px] bg-pink-500'><img src={wireclay} alt='wireclay'/></div> */}
       <WhatWeDo />
        {/* <div className='flex'><img src={spiralclay} alt='spiralclay'/></div> */}
-//       <Portfolio />
+{/* //       <Portfolio /> */}
        <Test />
       <WhyJoinUs/>
       <Reviews />

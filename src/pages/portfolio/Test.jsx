@@ -71,9 +71,9 @@ const Test = () => {
               View all
             </button> */}
 
-            <Button  className="md:left-[50%] lg:left-[60%] text-black w-[120px] absolute left-[60%] bottom-[30%] bordeer-none outline-none bg-white" >
+            {/* <Button  className="md:left-[50%] lg:left-[60%] text-black absolute left-[60%] bottom-[30%] bordeer-none outline-none bg-white" >
                 View all
-            </Button>
+            </Button> */}
           </div>
         </div>
 
