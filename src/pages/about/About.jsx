@@ -12,6 +12,7 @@ import winner from './assets/Winner.svg';
 import eche from './assets/Eche.svg';
 import emem from './assets/Emem.svg';
 import daniel from './assets/Daniel.svg';
+import farid from './assets/Farid.svg';
 import samuel from './assets/Samuel.svg';
 import ringclay from './assets/Star ring clay.svg';
 import ejikeme from './assets/Ejikeme.svg';
@@ -52,60 +53,78 @@ const About = () => {
       img:clinton,
       name:'Clinton Michael',
       role:'Founder & Product designer',
-      socials:''
+      linkedin:'https://www.linkedin.com/in/clinton-michael-701aa31bb?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+      twitter:'https://x.com/SirClint__?t=mqYo9f1BEp5avovXfdLHfA&s=09'
     },
     {
       img:cynthia,
       name:'Cynthia Ejikeme',
       role:'Project Manager & Brand commissioner',
-      socials:''
+      linkedin:'https://www.linkedin.com/in/cynthia-ejikeme?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
+      twitter:''
     },
     {
       img:samuel,
       name:'Samuel Ogboye',
       role:'Software engineer & Technical Supervisor ',
-      socials:''
+      linkedin:'https://www.linkedin.com/in/ogboyesamuel',
+      twitter:'https://x.com/samuel_ogboye'
     },
     {
       img:deborah,
       name:'Deborah Adegoke',
       role:'Frontend developer & Community manager',
-      socials:''
+      linkedin:'http://linkedin.com/in/oyindamola-adegoke',
+      twitter:'https://twitter.com/AdegokeOyindam9'
     },
     {
       img:uko,
       name:'Uko Idung',
-      role:'Project Manager'
+      role:'Project Manager',
+      linkedin:'https://www.linkedin.com/in/ukoidung/',
+      twitter:'https://twitter.com/ukoidung'
     },
     {
       img:winner,
       name:'Winner Brinemugha',
-      role:'UI/UX Designer'
+      role:'UI/UX Designer',
+      linkedin:'https://www.linkedin.com/in/ebiarede-brinemugha?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app',
+      twitter:'https://www.x.com/Webrin_'
     },
     {
       img:tems,
       name:'Temiloluwa Orekoya',
-      role:'Designer/ Dev and social media manager'
+      role:'Designer/ Dev and social media manager',
+      linkedin:'https://www.linkedin.com/in/orekoya-temiloluwa-ui-ux-designer-0386b2270?',
+      twitter:'https://www.linkedin.com/in/orekoya-temiloluwa-ui-ux-designer-0386b2270/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app'
     },
     {
       img:daniel,
       name:'Daniel Ogenna',
-      role:'UI/UX designer & Community advocate.'
+      role:'UI/UX designer & Community advocate.',
+      linkedin:'https://www.linkedin.com/in/ogenna-daniel-296b24146',
+      twitter:'http://twitter.com/danielkx_'
     },
     {
       img:eche,
       name:'Eche Ibekwe',
-      role:'Project Manager'
+      role:'Project Manager',
+      linkedin:'https://www.linkedin.com/in/echezonachukwu-ibekwe-124ab7ab',
+      twitter:'https://x.com/echeeibekwe'
     },
     {
-      img:cynthia,
+      img:farid,
       name:'Farid Abdulmalik',
-      role:'UI/UX Designer'
+      role:'UI/UX Designer',
+      linkedin:' https://www.linkedin.com/in/farid-ahmed-4a67b32a1?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+      twitter:'https://x.com/LagoonRedd14081?t=yALah3vJbwHFAYUWUcplvw&s=09'
     },
     {
       img:emem,
       name:'Emem Idem',
-      role:'Project manager & Event organizer'
+      role:'Project manager & Event organizer',
+      linkedin:'https://www.linkedin.com/in/emem-idem-246681238?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app',
+      twitter:'https://x.com/smiley_emiee?s=08'
     },
   ]
   
@@ -263,13 +282,17 @@ const remainingTeam = team.slice(4);
             {team.map((member, index) => (
               <SwiperSlide key={index}>
                 <div className='flex flex-col items-center'>
-                  <img src={member.img} alt='profile' className='md:w-[260px] w-[260px] h-[180px]' />
-                  <div className='bg-[#181818] md:w-[260px] w-[260px] md:h-[150px] h-[140px] mt-[-12px] rounded-b-[12px] flex flex-col justify-center items-center'>
+                  <img src={member.img} alt='profile' className='w-[270px]  h-[180px] rounded-t-[12px]' />
+                  <div className='bg-[#181818] md:w-[255px] md:h-[150px] h-[140px] mt-[-12px] rounded-b-[12px] flex flex-col justify-center items-center'>
                     <p className='md:text-[20px] text-[16px] font-[700] text-center'>{member.name}</p>
                     <p className='md:text-[14px] text-[12px] font-[400] w-[180px] text-center'>{member.role}</p>
                     <div className='flex gap-[1.5rem] pt-[20px] items-center'>
-                      <IoLogoLinkedin className='w-[20px] h-[20px]'/>
-                      <RiTwitterXFill className='w-[20px] h-[20px]'/>
+                    <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
+                    <IoLogoLinkedin size={24} />
+                    </a>
+                    <a href={member.twitter} target="_blank" rel="noopener noreferrer">
+                    <RiTwitterXFill size={24} />
+                    </a>
                     </div>
                   </div>
                 </div>
@@ -286,13 +309,17 @@ const remainingTeam = team.slice(4);
           <div className='flex flex-wrap justify-center gap-[1rem]'>
             {firstFourTeam.map((member, index) => (
               <div key={index} className='flex flex-col items-center'>
-                <img src={member.img} alt='profile' className='w-[180px] h-[180px] rounded-md' />
-                <div className='bg-[#181818] w-[260px]  h-[140px] mt-[-27px] rounded-b-[12px] pt-[30px] '>
+                <img src={member.img} alt='profile' className='w-[300px] h-[250px] rounded-t-[12px]' />
+                <div className='bg-[#181818] w-[300px]  h-[140px] mt-[-35px] rounded-b-[12px] pt-[30px] '>
                 <p className='text-[14px] font-[700] text-center'>{member.name}</p>
                 <p className='text-[12px] font-[400] text-center'>{member.role}</p>
                 <div className='flex justify-center gap-[1.5rem] pt-[10px]'>
-                  <IoLogoLinkedin className='w-[20px] h-[20px]'/>
-                  <RiTwitterXFill className='w-[20px] h-[20px]'/>
+                <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
+                  <IoLogoLinkedin size={24} />
+                </a>
+                <a href={member.twitter} target="_blank" rel="noopener noreferrer">
+                  <RiTwitterXFill size={24} />
+                </a>
                 </div>
                 </div>
               </div>
@@ -303,13 +330,17 @@ const remainingTeam = team.slice(4);
             <div className='flex flex-wrap justify-center gap-[1rem] mt-[20px]'>
               {remainingTeam.map((member, index) => (
                 <div key={index} className='flex flex-col items-center'>
-                  <img src={member.img} alt='profile' className='w-[180px] h-[180px] rounded-md' />
-                  <div className='bg-[#181818] w-[260px]  h-[140px] mt-[-27px] rounded-b-[12px] pt-[30px]'>
+                  <img src={member.img} alt='profile' className='w-[300px] h-[250px] rounded-t-[12px]' />
+                  <div className='bg-[#181818] w-[300px]  h-[140px] mt-[-35px] rounded-b-[12px] pt-[30px]'>
                   <p className='text-[14px] font-[700] text-center'>{member.name}</p>
                   <p className='text-[12px] font-[400] text-center'>{member.role}</p>
                   <div className='flex justify-center gap-[1.5rem] pt-[10px]'>
-                    <IoLogoLinkedin className='w-[20px] h-[20px]'/>
-                    <RiTwitterXFill className='w-[20px] h-[20px]'/>
+                  <a href={member.linkedin} target="_blank" rel="noopener noreferrer">
+                  <IoLogoLinkedin size={24} />
+                  </a>
+                  <a href={member.twitter} target="_blank" rel="noopener noreferrer">
+                  <RiTwitterXFill size={24} />
+                  </a>
                   </div>
                   </div>
                 </div>

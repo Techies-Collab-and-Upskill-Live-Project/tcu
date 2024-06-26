@@ -87,7 +87,7 @@ const Join = ({
     try {
       setIsLoading(true);
       const response = await axios.post(
-        `${baseUrl}/internship/register/entry`,
+        `${baseUrl}/internship/register/entry/`,
         { formEntries }
       );
       setIsLoading(false);

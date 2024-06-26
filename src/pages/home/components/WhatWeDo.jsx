@@ -21,7 +21,7 @@ const WhatWeDo = () => {
   return (
     <div className="lg:px-[100px] px-[20px] mt-[48.3px] lg:mt-[90px] flex flex-col items-center">
       
-      <div className=" mt-[100px] lg:mt-[60px] flex flex-col items-center">
+      <div className=" mt-[15px] lg:mt-[15px] flex flex-col items-center">
       <div className='flex float-right md:mr-[-1000px] mr-[-300px] md:mb-[2px] mb-[-30px] '><img src={wireclay} alt='wireclay'/></div>
         <div className="">
           {/* what we do */}
