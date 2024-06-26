@@ -3,7 +3,7 @@ import Elearning from "./Assets/e-learning.png"
 import Social from "./Assets/Socialnetwork.png"
 import FinancialManagement from "./Assets/FinancialTool.png"
 import Charity from "./Assets/Charity.png"
-import Healthandfitness from "./Assets/HealthBenefit.png"
+import Healthandfitness from "./Assets/HealthBenefit1.png"
 
 
 export const DesignData = [
