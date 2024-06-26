@@ -1,7 +1,6 @@
 import React from 'react';
 import Button from "../../../components/Button";
 import { Link } from "react-router-dom";
-import aboutImg from "../../../assets/team.png";
 import chainclay from "../../../assets/Chain clay.svg";
 
 const WhyJoinUs = () => {

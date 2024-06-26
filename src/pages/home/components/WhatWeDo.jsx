@@ -20,10 +20,12 @@ const WhatWeDo = () => {
   ];
   return (
     <div className="lg:px-[100px] px-[20px] mt-[48.3px] lg:mt-[90px] flex flex-col items-center">
-      {/* <div className='flex float-right'><img src={wireclay} alt='wireclay'/></div> */}
-      <div className=" mt-[100px] lg:mt-[100px] flex flex-col items-center">
+      
+      <div className=" mt-[100px] lg:mt-[60px] flex flex-col items-center">
+      <div className='flex float-right md:mr-[-1000px] mr-[-300px] md:mb-[2px] mb-[-30px] '><img src={wireclay} alt='wireclay'/></div>
         <div className="">
           {/* what we do */}
+          
           <div className="flex max-lg:flex-col gap-y-[32px] max-lg:mt-[32px] lg:gap-x-[20px] ">
             {whatWeDo?.map((item, index) => (
               <div
@@ -56,6 +58,7 @@ const WhatWeDo = () => {
                 product and have access to a community flowing with milk and
                 honey.
               </p>
+              <p className="flex items-center justify-center bg-[#292929] w-[110px] h-[15px] rounded-[2px] text-[#FF8686] text-[8px] font-[500] md:hidden visible">Project Kickoff at August.</p>
             </div>
             <Link to="/join">
               <Button className="h-fit px-[27px] text-[14px] lg:text-[16px] w-full lg:w-[213px] py-[16.78px] ml-[20px]">
@@ -63,9 +66,11 @@ const WhatWeDo = () => {
               </Button>
             </Link>
           </div>
+          <div className='flex'><img src={spiralclay} alt='spiralclay'/></div>
         </div>
+        
       </div>
-      {/* <div className='flex'><img src={spiralclay} alt='spiralclay'/></div> */}
+     
     </div>
   );
 };

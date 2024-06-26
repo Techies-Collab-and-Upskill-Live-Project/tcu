@@ -1,15 +1,17 @@
+import React, { useState } from 'react';
 import us from './assets/Us.svg';
-import tufts from './assets/image 3.svg';
-import frame from './assets/Frame.svg';
-import chart from './assets/chart.svg';
-import vector from './assets/Vector.svg';
-import award from './assets/award.svg';
 import Button from '../../components/Button';
 import wireclay from './assets/Telephone wire clay.svg';
 import spiralclay from './assets/Spiral clay.svg';
 import clinton from './assets/Clinton.svg';
 import cynthia from './assets/Cynthia.svg';
 import deborah from './assets/Deborah.svg';
+import uko from './assets/Uko.svg';
+import tems from './assets/Tems.svg';
+import winner from './assets/Winner.svg';
+import eche from './assets/Eche.svg';
+import emem from './assets/Emem.svg';
+import daniel from './assets/Daniel.svg';
 import samuel from './assets/Samuel.svg';
 import ringclay from './assets/Star ring clay.svg';
 import ejikeme from './assets/Ejikeme.svg';
@@ -21,9 +23,14 @@ import { RiTwitterXFill } from "react-icons/ri";
 import linkedin from './assets/linkedin.svg';
 import twitter from './assets/twitter.svg';
 import { Link } from "react-router-dom";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { MdKeyboardArrowRight, MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
+
 
 
 const About = () => {
+
+  const [showMore, setShowMore] = useState(false);
 
   const whatWeDo = [
     {
@@ -64,7 +71,42 @@ const About = () => {
       name:'Deborah Adegoke',
       role:'Frontend developer & Community manager',
       socials:''
-    }
+    },
+    {
+      img:uko,
+      name:'Uko Idung',
+      role:'Project Manager'
+    },
+    {
+      img:winner,
+      name:'Winner Brinemugha',
+      role:'UI/UX Designer'
+    },
+    {
+      img:tems,
+      name:'Temiloluwa Orekoya',
+      role:'Designer/ Dev and social media manager'
+    },
+    {
+      img:daniel,
+      name:'Daniel Ogenna',
+      role:'UI/UX designer & Community advocate.'
+    },
+    {
+      img:eche,
+      name:'Eche Ibekwe',
+      role:'Project Manager'
+    },
+    {
+      img:cynthia,
+      name:'Farid Abdulmalik',
+      role:'UI/UX Designer'
+    },
+    {
+      img:emem,
+      name:'Emem Idem',
+      role:'Project manager & Event organizer'
+    },
   ]
   
 const reviews = [
@@ -97,6 +139,9 @@ const reviews = [
     socials:twitter,
   },
 ]
+
+const firstFourTeam = team.slice(0, 4);
+const remainingTeam = team.slice(4);
 
   return (
     <div className='bg-[#121212] text-[#ffffff] w-full h-full px-[20px] md:px-[50px] font-satoshi'>
@@ -179,7 +224,7 @@ const reviews = [
       <div className='flex'><img src={spiralclay} alt='spiralclay'/></div>
       <div className='flex flex-col items-center pt-[50px]'>
         <p className='md:text-[48px] text-[20px] font-[700]'>Our Team</p>
-        <div className='flex flex-wrap justify-center gap-[1rem] md:gap-[5rem] pt-[15px]'>
+      {/* <div className='flex flex-wrap justify-center gap-[1rem] md:gap-[5rem] pt-[15px]'>
       <div className='flex flex-wrap gap-[1rem] justify-center'>
         {team && team.map((teams, index) => (
           <div key={index} className='flex flex-col items-center'>
@@ -208,8 +253,77 @@ const reviews = [
         alt='ringclay' 
         className='md:ml-[-60px] flex justify-center mt-4 md:mt-0' 
       />
-    </div>
-        
+    </div> */}
+       {/* Swiper for large screens */}
+       <div className='hidden lg:block w-full'>
+          <Swiper
+            spaceBetween={50}
+            slidesPerView={4}
+          >
+            {team.map((member, index) => (
+              <SwiperSlide key={index}>
+                <div className='flex flex-col items-center'>
+                  <img src={member.img} alt='profile' className='md:w-[260px] w-[260px] h-[180px]' />
+                  <div className='bg-[#181818] md:w-[260px] w-[260px] md:h-[150px] h-[140px] mt-[-12px] rounded-b-[12px] flex flex-col justify-center items-center'>
+                    <p className='md:text-[20px] text-[16px] font-[700] text-center'>{member.name}</p>
+                    <p className='md:text-[14px] text-[12px] font-[400] w-[180px] text-center'>{member.role}</p>
+                    <div className='flex gap-[1.5rem] pt-[20px] items-center'>
+                      <IoLogoLinkedin className='w-[20px] h-[20px]'/>
+                      <RiTwitterXFill className='w-[20px] h-[20px]'/>
+                    </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+          <button className='absolute right-[10px] top-[73%] transform translate-y-[-50%] bg-white text-black p-2 rounded-full'>
+          <MdKeyboardArrowRight />
+          </button>
+        </div>
+     
+        {/* Dropdown for small screens */}
+        <div className='block lg:hidden'>
+          <div className='flex flex-wrap justify-center gap-[1rem]'>
+            {firstFourTeam.map((member, index) => (
+              <div key={index} className='flex flex-col items-center'>
+                <img src={member.img} alt='profile' className='w-[180px] h-[180px] rounded-md' />
+                <div className='bg-[#181818] w-[260px]  h-[140px] mt-[-27px] rounded-b-[12px] pt-[30px] '>
+                <p className='text-[14px] font-[700] text-center'>{member.name}</p>
+                <p className='text-[12px] font-[400] text-center'>{member.role}</p>
+                <div className='flex justify-center gap-[1.5rem] pt-[10px]'>
+                  <IoLogoLinkedin className='w-[20px] h-[20px]'/>
+                  <RiTwitterXFill className='w-[20px] h-[20px]'/>
+                </div>
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          {showMore && (
+            <div className='flex flex-wrap justify-center gap-[1rem] mt-[20px]'>
+              {remainingTeam.map((member, index) => (
+                <div key={index} className='flex flex-col items-center'>
+                  <img src={member.img} alt='profile' className='w-[180px] h-[180px] rounded-md' />
+                  <div className='bg-[#181818] w-[260px]  h-[140px] mt-[-27px] rounded-b-[12px] pt-[30px]'>
+                  <p className='text-[14px] font-[700] text-center'>{member.name}</p>
+                  <p className='text-[12px] font-[400] text-center'>{member.role}</p>
+                  <div className='flex justify-center gap-[1.5rem] pt-[10px]'>
+                    <IoLogoLinkedin className='w-[20px] h-[20px]'/>
+                    <RiTwitterXFill className='w-[20px] h-[20px]'/>
+                  </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+         )}
+         <div className='flex justify-center items-center'>
+          <button onClick={() => setShowMore(!showMore)} className='mt-[20px] flex justify-center items-center w-[59px] h-[36px] bg-white text-black rounded-[21.84px]'>
+            {showMore ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}
+          </button>
+          </div>
+         </div>
+         
+
       </div>
       <div className='flex flex-col items-center pt-[50px] pb-[30px]'>
         <p className='text-[14px] md:text-[32px] font-[500]'>Reviews</p>
