@@ -6,7 +6,7 @@ const PortfolioGrid = () => {
     <div className="flex justify-center flex-col mb-32">
       <h2 className="text-white font-bold text-xl">Design</h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
         {DesignData.map((item, index) => (
           <Link
           to={item.to}
@@ -20,6 +20,8 @@ const PortfolioGrid = () => {
             </p>
           </Link>
         ))}
+
+{/* /api/v1/contactus/ */}
       </div>
     </div>
   );
