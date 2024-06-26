@@ -1,3 +1,4 @@
+import Test from '../portfolio/Test';
 import Contact from './components/Contact';
 import Hero from './components/Hero';
 import Portfolio from './components/Portfolio';
@@ -7,11 +8,12 @@ import WhatWeDo from './components/WhatWeDo';
 
 const Home = () => {
   return (
-    <div>
+    <div className='overflow-hidden'>
       <Hero/>
       <Section2/>
       <WhatWeDo/>
-      <Portfolio/>
+      {/* <Portfolio/> */}
+      <Test />
       <Reviews/>
       <Contact/>
     </div>
