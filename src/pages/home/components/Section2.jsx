@@ -6,7 +6,7 @@ const Section2 = () => {
   
   const navigateTo = useNavigate();
   return (
-    <div className="w-full max-lg:px-[20px] flex flex-col mt-[32.94px] lg:mt-[67px] items-center">
+    <div className="w-full max-lg:px-[20px] flex flex-col mt-[32.94px] lg:mt-[150px] items-center">
       {/* About us */}
       <div className="flex max-lg:flex-col lg:gap-x-[42px] mt-[46.76px] lg:mt-[83.28px] self-start lg:px-[100px]">
         {/* About */}
