@@ -2,63 +2,73 @@ import logo1 from "../../../assets/xtp.png";
 import logo2 from "../../../assets/quoter.png";
 import logo3 from "../../../assets/caterV2.png";
 import logo4 from "../../../assets/xtpv6.png";
+import ejikeme from '../../about/assets/Ejikeme.svg'
+import light from '../../about/assets/Light.svg';
+import temitayo from '../../about/assets/Temitayo.svg';
+import simon from '../../about/assets/Simon.svg';
+import linkedin from '../../about/assets/linkedin.svg';
+import twitter from '../../about/assets/twitter.svg';
 
 const Reviews = () => {
+
   const reviews = [
     {
-      content:
-        "Second Layer is not just a service provider; we are partners in your project's success. We offer educational resources and workshops to empower project teams with the",
-      logo: logo1,
-      title: "XTP V.6",
+     avatar:ejikeme,
+     name:'Cynthia Ejikeme',
+     role:'Project Manager',
+     feedback:'As one of the project managers in TCU 1,0, Working with designers and developers was a profound experience I hope to have again. We were able to seamlessly integrate a functional, user friendly platform.',
+     socials:linkedin,
     },
     {
-      content:
-        "Second Layer is not just a service provider; we are partners in your project's success. We offer educational resources and workshops to empower project teams with the",
-      logo: logo2,
-      title: "Quoter X",
+     avatar:temitayo,
+     name:'Temitayo Lawal',
+     role:'Product Designer',
+     feedback:'While leading the design team to create the Donation Trace platform, it was an interesting experience and process. Working with the developers to bring our project to life was challenging, yet beautiful.',
+     socials:twitter,
     },
     {
-      content:
-        "Second Layer is not just a service provider; we are partners in your project's success. We offer educational resources and workshops to empower project teams with the",
-      logo: logo3,
-      title: "Cater V2",
+      avatar:simon,
+      name:'Simon Favour',
+      role:'Developer',
+      feedback:'Working with others, has been a highly rewarding experience. The team’s dedication to excellence, innovative approach to problem-solving, and collaborative spirit have made the project both challenging and fulfilling.',
+      socials:linkedin,
     },
     {
-      content:
-        "Second Layer is not just a service provider; we are partners in your project's success. We offer educational resources and workshops to empower project teams with the",
-      logo: logo4,
-      title: "XTP  V.6",
+      avatar:light,
+      name:'Light',
+      role:'Product Manager',
+      feedback:'Collaborating with designers and developers  was an impactful experience. Through proper communication, we were able to integrate aesthetics and functionality, in creating a user-friendly platform.',
+      socials:twitter,
     },
-  ];
+  ]
+
   return (
-    <div className="px-[20px] lg:px-[100px] flex flex-col mt-[49px] lg:mt-[90px]">
-      <div className="flex flex-col items-center">
-        <h6 className="text-[#DBDBDB] text-[14px] lg:text-[24px] leading-[18.9px] lg:leading-[32.4px] font-[500] text-center">
-          Reviews
-        </h6>
-        <h2 className="text-white text-[20px] lg:text-[40px] leading-[27px] lg:leading-[54px] text-center font-[700]">
-          What our talents have to say about us
-        </h2>
-        <div className="mt-[21px] lg:mt-[60px] flex max-lg:flex-col lg:justify-between gap-[20px]">
-          {reviews?.map((review, index) => (
-            <div key={index} className="flex font-geologica flex-col gap-y-[32px] lg:gap-y-[40px] bg-[#181818] rounded-[20px] px-[25px] pt-[21px] pb-[14px]">
-              <p className="text-[16px] text-justify leading-[22px] text-[#EEEEEE] font-[300]">
-                {review.content}
-              </p>
-              <div className="flex gap-x-[10px] max-lg:items-center lg:gap-x-[5px]">
-                <img src={review.logo} className="size-[46px]" />
-                <div className="flex flex-col">
-                  <p className="text-[16px] font-[500] leading-[20px] text-white">
-                    {review.title}
-                  </p>
-                  <small className="text-[#CACACA] text-[12px] font-[400] leading-[15px]">
-                    Audit . 1/27
-                  </small>
+
+    <div className="text-[#DBDBDB] px-[20px]">
+       <div className='flex flex-col items-center pt-[50px] pb-[30px]'>
+        <p className='text-[14px] md:text-[32px] font-[500]'>Reviews</p>
+        <p className='text-[20px] font-[700] md:text-[48px]'>What our interns say about us</p>
+      </div>
+      <div className='grid md:grid-cols-4 grid-cols-2 gap-[1rem] items-center justify-center'>
+        {reviews && reviews.map((review, index) => (
+          <div key={index} className='border border-[#191919] border-t-[#121212] border-b-[#121212] w-[165px] h-[250px] md:w-[280px] md:h-[304px] md:pl-[15px] pl-[8px]'>
+            <div className='flex gap-[1rem] pt-[20px]'>
+                <img src={review.avatar} alt='avatar'/>
+                <div>
+                  <p className='md:text-[16px] text-[12px] font-[700]'>{review.name}</p>
+                  <p className='md:text-[12px] text-[10px] font-[400]'>{review.role}</p>
                 </div>
-              </div>
             </div>
-          ))}
-        </div>
+            <div className='md:w-[253px] w-[160]  '>
+              <p className='md:text-[14px] text-[10px] font-[500] pt-[20px]'>{review.feedback}</p>
+            </div>
+            <div className='pt-[20px]'>
+              <img src={review.socials} alt='socials'/>
+            </div>
+            </div>
+           
+        ))}
+         
       </div>
     </div>
   );

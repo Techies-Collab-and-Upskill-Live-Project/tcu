@@ -93,9 +93,9 @@ const TopNav = () => {
                   : "text-white"
               }
             >
-              Contact us
+              Service
             </NavLink>
-            <NavLink
+            {/* <NavLink
               to="/join"
               onClick={()=>setIsOpen(false)}
               className={({ isActive, isPending }) =>
@@ -107,7 +107,7 @@ const TopNav = () => {
               }
             >
               Join our team
-            </NavLink>
+            </NavLink> */}
           </div>
         </div>
       </div>

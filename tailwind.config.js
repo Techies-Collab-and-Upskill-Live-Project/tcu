@@ -10,6 +10,9 @@ export default {
         satoshi: "'Satoshi', sans-serif",
         geologica: '"Geologica", sans-serif'
       },
+      animation: {
+        'spin-slow':'spin 10s linear infinite',
+      }
     },
   },
   plugins: [],
