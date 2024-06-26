@@ -1,4 +1,3 @@
-import Test from '../portfolio/Test';
 import Contact from './components/Contact';
 import Hero from './components/Hero';
 import Portfolio from './components/Portfolio';
@@ -12,8 +11,7 @@ const Home = () => {
       <Hero/>
       <Section2/>
       <WhatWeDo/>
-      {/* <Portfolio/> */}
-      <Test />
+      <Portfolio/>
       <Reviews/>
       <Contact/>
     </div>
