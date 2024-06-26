@@ -52,7 +52,7 @@ const Hero = () => {
                   <p className="text-[10px] max-lg:mt-[16px] max-lg:text-[14px] max-lg:leading-[18.9px] max-lg: lg:pr-[105px] max-lg:text-center max-lg:text-justif lg:text-[22px] lg:w-[715px] font-[400] leading-[18.08px] lg:leading-[35px] text-justify text-[#E3E3E3]">
                     {slide.desc}
                   </p>
-                  <div className="flex gap-x-[40px] mt-[48px]">
+                  <div className="flex justify-center md:justify-start gap-x-[40px] mt-[48px]">
                     <Link to="join">
                       <Button
                         className={
