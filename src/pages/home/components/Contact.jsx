@@ -1,5 +1,6 @@
 import { twMerge } from "tailwind-merge";
 import Button from "../../../components/Button";
+import starring from '../../about/assets/Star ring clay.svg';
 
 const Contact = ({
   className,
@@ -15,6 +16,7 @@ const Contact = ({
         className
       )}
     >
+      <div className="md:mt-[-510px] ml-[-70px] mt-[-25px]  md:visible invisible"><img src={starring} alt="starring"/></div>
       <div className={twMerge(`flex flex-col lg:w-[401px] `, descClass)}>
         <h3 className="font-[700] max-lg:text-center text-[18px] lg:text-[32px] leading-[24.3px] lg:leading-[43.2px] text-white">
           Let help you build tomorrows product today.

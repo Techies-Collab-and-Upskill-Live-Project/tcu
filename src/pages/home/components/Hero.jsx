@@ -71,7 +71,7 @@ const Hero = () => {
                     </Button>
                   </div>
                 </div>
-                <img src={slide.image} className=" max-lg:size-[243px] max-lg:mt-[41px] lg:size-[407px]" />
+                <img src={slide.image} className=" max-lg:size-[243px] max-lg:mt-[41px] lg:size-[407px] animate-spin-slow" />
               </div>
               <div className="flex mt-[153px] px-[64px] gap-x-[100px]">
                 <img src={star} className="" />
