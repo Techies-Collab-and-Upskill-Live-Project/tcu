@@ -15,14 +15,13 @@ const ContactPage = ({
     email: "",
     message: "",
   });
-  const [message, setMessage] = useState();
+  // const [message, setMessage] = useState();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setValues((prevVals) => ({ ...prevVals, [name]: value }));
     // console.log(values);
   };
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -41,6 +40,11 @@ const ContactPage = ({
         .then((response) => {
           console.log("success!");
           console.log(response);
+          setValues((prev) => ({
+            companyName: "",
+            email: "",
+            message: "",
+          }));
         })
         .catch((err) => {
           console.log(err.response);
