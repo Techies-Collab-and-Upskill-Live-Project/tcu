@@ -23,6 +23,7 @@ const ContactPage = ({
     // console.log(values);
   };
 
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (values.companyName === "" || values.email === "") {
