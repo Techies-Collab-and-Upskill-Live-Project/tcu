@@ -9,6 +9,7 @@ import WhatWeDo from "./components/WhatWeDo";
 import WhyJoinUs from "./components/WhyJoinUs";
 import wireclay from '../about/assets/Telephone wire clay.svg';
 import spiralclay from '../about/assets/Spiral clay.svg';
+import ContactPage from "../contactPage/ContactPage";
 
 const Home = () => {
   return (
@@ -22,7 +23,8 @@ const Home = () => {
        <Test />
       <WhyJoinUs/>
       <Reviews />
-      <Contact />
+      {/* <Contact /> */}
+      <ContactPage />
     </div>
   );
 };

@@ -12,7 +12,7 @@ const Test = () => {
   };
 
   return (
-    <div className="max-lg:w-full bg-black  px-[20px] lg:px-[100px] flex flex-col mt-[51.67px] lg:mt-[50px]">
+    <div className="max-lg:w-full bg-black px-[20px] mb-[150px] lg:px-[100px] flex flex-col mt-[51.67px] lg:mt-[50px]">
       <div className="flex flex-col">
         <p className="text-[#DBDBDB] text-[14px] lg:text-[24px] leading-[18.9px] lg:leading-[32.4px] font-[500] text-center">
           Our Work
@@ -43,15 +43,15 @@ const Test = () => {
             </div>
 
             {openPortfolio ? (
-                <PiArrowCircleDownLight
+              <PiArrowCircleUpLight
                 onClick={handleClick}
                 className="text-white self-start text-[32px] lg:text-[64px]"
               />
             ) : (
-                <PiArrowCircleUpLight
-                  onClick={handleClick}
-                  className="text-white self-start text-[32px] lg:text-[64px]"
-                />
+              <PiArrowCircleDownLight
+                onClick={handleClick}
+                className="text-white self-start text-[32px] lg:text-[64px]"
+              />
             )}
           </div>
 
@@ -60,6 +60,7 @@ const Test = () => {
             <div className="max-lg:w-full overflow-hidden flex max-lg:justify-between gap-x-[14px] max-lg:mt-[22px] mt-[30px] ">
               {images.map((image, index) => (
                 <img
+                  key={index}
                   src={image}
                   className="w-[200px] border-[3px] border-gray-300 lg:w-[293px] h-[141px] rounded-[8px]"
                   alt=""

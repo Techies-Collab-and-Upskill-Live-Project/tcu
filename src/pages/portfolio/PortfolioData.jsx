@@ -57,7 +57,7 @@ export const DesignData = [
 export const DevelopmentData = [
     {
         img: Digital,
-        title: "‘s okay, will make th",
+        title: "Digital Productivity Tool",
         description:
           "Delivers in-depth analytics, enabling you to detect trends, monitor efficiency, and modify your plans for victory.",
           to: "",
