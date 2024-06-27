@@ -21,7 +21,7 @@ const Portfolio = () => {
         <img src={img} className="hidden md:block md:absolute lg:bottom-[26%] bottom-[7%]" alt="" />
 
       </div>
-      <ContactPage title={title} icon={img} text={description} />
+      <ContactPage />
     </div>
   );
 };
