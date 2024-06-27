@@ -11,7 +11,7 @@ export default {
         geologica: '"Geologica", sans-serif'
       },
       animation: {
-        'spin-slow':'spin 10s linear infinite',
+        'spin-slow':'spin 15s linear infinite',
       }
     },
   },

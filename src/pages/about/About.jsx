@@ -171,16 +171,16 @@ const remainingTeam = team.slice(4);
         <div className='w-full md:w-[620px] h-full'>
             <p className='text-[14px] md:text-[24px]'>About us</p>
             <p className='text-[19px] md:text-[50px] font-[700]'>Where creativity meets opportunity</p>
-            <p className='text-[11px] md:text-[18px] pt-[20px]'>We are a community built by individuals with diverse levels of experience in technology, spanning from entry-level to mid and senior positions join forces to collaborate and enhance their skill sets and build their personal portfolio. We also have a seasoned team specializing in technological service solutions.</p>
-            <p className='text-[11px] md:text-[18px] pt-[20px]'>Our team of experienced developers and designers are at the forefront of technological advancement. We leverage the latest tools and frameworks to craft robust, scalable solutions that address real-world challenges. From web and mobile applications to complex enterprise systems, we deliver results that empower our clients and shape the future.</p>
+            <p className='text-[13px] md:text-[18px] pt-[20px]'>We are a community built by individuals with diverse levels of experience in technology, spanning from entry-level to mid and senior positions join forces to collaborate and enhance their skill sets and build their personal portfolio. We also have a seasoned team specializing in technological service solutions.</p>
+            <p className='text-[13px] md:text-[18px] pt-[20px]'>Our team of experienced developers and designers are at the forefront of technological advancement. We leverage the latest tools and frameworks to craft robust, scalable solutions that address real-world challenges. From web and mobile applications to complex enterprise systems, we deliver results that empower our clients and shape the future.</p>
             <div className='flex gap-[20px] pt-[20px]'> 
                 <div>
                     <p className='text-[19px] md:text-[32px] font-[700] md:font-[900]'>5+</p>
-                    <p className='text-[11px] md:text-[18px]'>Live Projects</p>
+                    <p className='text-[13px] md:text-[18px]'>Live Projects</p>
                 </div>
                 <div>
                     <p className='text-[19px] md:text-[32px] font-[700] md:font-[900]'>100+</p>
-                    <p className='text-[11px] md:text-[18px]'>Interns</p>
+                    <p className='text-[13px] md:text-[18px]'>Interns</p>
                 </div>
             </div>
             {/* <Button className={"mt-[22.81px] max-lg:w-full max-lg:text-[10.8px] max-lg:py-[7.2px] lg:mt-[38px]"}>Learn More</Button> */}
@@ -188,8 +188,8 @@ const remainingTeam = team.slice(4);
         </div>
       </div>
       <div>
-      <p className='text-[11px] md:text-[18px] pt-[20px] md:pt-[80px]'>We believe everyone deserves the opportunity to participate in the exciting world of technology. Our unique platform provides a collaborative learning environment for aspiring developers, designers, and other tech enthusiasts. Here, you'll gain practical experience working alongside industry professionals on real-world projects. It's not just learning the ropes, it's contributing to cutting-edge solutions while building your skillset and portfolio.</p>
-      <p className='text-[11px] md:text-[18px] pt-[20px]'>At TCU, we foster a collaborative spirit. Our experienced team mentors newcomers, while fresh perspectives inject new ideas into the development process. This synergy fuels innovation and allows us to create truly groundbreaking tech solutions.</p>
+      <p className='text-[13px] md:text-[18px] pt-[20px] md:pt-[80px]'>We believe everyone deserves the opportunity to participate in the exciting world of technology. Our unique platform provides a collaborative learning environment for aspiring developers, designers, and other tech enthusiasts. Here, you'll gain practical experience working alongside industry professionals on real-world projects. It's not just learning the ropes, it's contributing to cutting-edge solutions while building your skillset and portfolio.</p>
+      <p className='text-[13px] md:text-[18px] pt-[20px]'>At TCU, we foster a collaborative spirit. Our experienced team mentors newcomers, while fresh perspectives inject new ideas into the development process. This synergy fuels innovation and allows us to create truly groundbreaking tech solutions.</p>
       
       <div className='flex float-right'><img src={wireclay} alt='wireclay'/></div>
       </div>
@@ -231,7 +231,7 @@ const remainingTeam = team.slice(4);
     </p>
   </div>
   <Link to='/join'>
-    <Button className="h-fit px-[27px] text-[14px] lg:text-[16px] w-full lg:w-[213px] py-[16.78px] ml-[20px]">
+    <Button className="h-[48px] lg:h-[60px] justify-center align-middle items-center flex px-[27px] text-[14px] lg:text-[16px] w-full lg:w-[213px] py-[16.78px] ml-[20px]">
       Fill entry form
     </Button>
   </Link>
@@ -348,8 +348,8 @@ const remainingTeam = team.slice(4);
             </div>
          )}
          <div className='flex justify-center items-center'>
-          <button onClick={() => setShowMore(!showMore)} className='mt-[20px] flex justify-center items-center w-[59px] h-[36px] bg-white text-black rounded-[21.84px]'>
-            {showMore ? <MdKeyboardArrowUp /> : <MdKeyboardArrowDown />}
+          <button onClick={() => setShowMore(!showMore)} className='mt-[20px] flex justify-center items-center w-[70px] h-[36px] bg-white text-black rounded-[21.84px]'>
+            {showMore ? <MdKeyboardArrowUp size={30}/> : <MdKeyboardArrowDown size={30}/>}
           </button>
           </div>
          </div>
