@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom"
 import logo from "../assets/logo.svg"
 import { FaLinkedin, FaTwitter } from "react-icons/fa"
+import { FaXTwitter } from "react-icons/fa6"
+import { CiMail } from "react-icons/ci"
 
 
 const Footer = () => {
@@ -9,7 +11,7 @@ const Footer = () => {
       <div className="w-full flex max-lg:flex-col justify-between items-center ">
         <img src={logo} alt="logo" className="lg:w-[41px] lg:h-[53.66px] " />
         {/* Links */}
-        <div className="flex max-lg:flex-col max-lg:text-center max-lg:mt-[48px] max-lg:gap-y-[49px] gap-x-[49px] font-[700] text-[16px] leading-[27px] tracking-[1%]">
+        {/* <div className="flex max-lg:flex-col max-lg:text-center max-lg:mt-[48px] max-lg:gap-y-[49px] gap-x-[49px] font-[700] text-[16px] leading-[27px] tracking-[1%]">
           <Link
             to="/"
             className={ "text-[#F1F1F1]"
@@ -45,10 +47,11 @@ const Footer = () => {
           >
             Join our team
           </Link>
-        </div>
+        </div> */}
         {/* Socials */}
-        <div className="flex gap-x-[14.13px] max-lg:mt-[48px] text-white">
-            <FaTwitter className=""/>
+        <div className="flex text-[40px] gap-x-[50.13px] max-lg:mt-[48px] text-white">
+            <CiMail />
+            <FaXTwitter className=""/>
             <FaLinkedin/>
         </div>
       </div>

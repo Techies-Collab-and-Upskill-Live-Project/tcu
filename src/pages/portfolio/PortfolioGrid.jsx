@@ -20,8 +20,6 @@ const PortfolioGrid = () => {
             </p>
           </Link>
         ))}
-
-{/* /api/v1/contactus/ */}
       </div>
     </div>
   );
