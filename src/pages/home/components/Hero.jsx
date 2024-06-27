@@ -77,7 +77,7 @@ const Hero = () => {
                 <img src={star} className="" />
                 <div className="flex w-full items-center ">
                   <div className="border-[#8C8C8CCC] w-full border-b-[1px]"></div>
-                <MdKeyboardArrowRight className="text-[#8C8C8CCC] -ml-[10px] text-[24px]" />
+                  <MdKeyboardArrowRight className="text-[#8C8C8CCC] -ml-[10px] text-[24px]" />
                 </div>
               </div>
             </SwiperSlide>

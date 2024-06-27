@@ -61,7 +61,7 @@ const WhatWeDo = () => {
               <p className="flex items-center justify-center bg-[#292929] w-[110px] h-[15px] rounded-[2px] text-[#FF8686] text-[8px] font-[500] md:hidden visible">Project Kickoff at August.</p>
             </div>
             <Link to="/join">
-              <Button className="h-fit px-[27px] text-[14px] lg:text-[16px] w-full lg:w-[213px] py-[16.78px] ml-[20px]">
+              <Button className="h-[48px] lg:h-[60px] justify-center align-middle items-center flex px-[27px] text-[14px] lg:text-[16px] w-full lg:w-[213px] py-[16.78px] ml-[20px]">
                 Fill entry form
               </Button>
             </Link>

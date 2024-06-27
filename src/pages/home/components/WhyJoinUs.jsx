@@ -23,7 +23,7 @@ const WhyJoinUs = () => {
         </div>
       </div>
       <Link to="/join">
-              <Button className="h-fit px-[27px] text-[14px] lg:text-[16px] w-full lg:w-[213px] py-[16.78px] ml-[20px] mt-[50px]">
+              <Button className="h-[48px] lg:h-[60px] justify-center align-middle items-center flex px-[27px] text-[14px] lg:text-[16px] w-full lg:w-[213px] py-[16.78px] ml-[20px] mt-[50px]">
                 Fill entry form
               </Button>
      </Link>

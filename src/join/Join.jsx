@@ -4,28 +4,16 @@ import Button from "../components/Button";
 import Download from "../components/Download";
 import axios from "axios";
 import { toast } from "sonner";
+import { IoCloseSharp } from "react-icons/io5";
+import { FaCheck } from "react-icons/fa6";
 
-const skills = [
-  "UI/UX Design",
-  "Frontend Development",
-  "Backend Development",
-  "Product/Project Management",
-  "Illustration",
-  "Graphic Design",
-];
+const skills = ["UI/UX Design", "Frontend Development", "Backend Development", "Product/Project Management", "Illustration", "Graphic Design"];
 
 const experiences = ["Novice", "Intermediate", "Advanced", "Expert"];
 
 const commitments = ["Yes", "No", "Maybe"];
 
-
-
-const Join = ({
-  className,
-  formClass,
-  inputClass,
-  
-}) => {
+const Join = ({ className, formClass, inputClass }) => {
   const [formEntries, setFormEntries] = useState({
     certificate: "",
     email: "",
@@ -47,6 +35,8 @@ const Join = ({
   });
 
   const [isLoading, setIsLoading] = useState(false);
+  const [successMessage, setSuccessMessage] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(false);
 
   const validateEmail = (email) => {
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -54,10 +44,10 @@ const Join = ({
   };
 
   const validateUrl = (url) => {
-    const re = /^(https?:\/\/)?([\w\-])+\.{1}([a-zA-Z]{2,63})([\/\w \.-]*)*\/?$/;
+    const re =
+      /^(https?:\/\/)?([\w\-])+\.{1}([a-zA-Z]{2,63})([\/\w \.-]*)*\/?$/;
     return re.test(String(url).toLowerCase());
   };
-
 
   const handleSkillChange = (event) => {
     console.log(event.target.value);
@@ -91,9 +81,13 @@ const Join = ({
         { formEntries }
       );
       setIsLoading(false);
+      setSuccessMessage(true);
+      setErrorMessage(false);
       console.log(response);
     } catch (error) {
       setIsLoading(false);
+      setSuccessMessage(false);
+      setErrorMessage(true);
       console.log(error);
       toast.error(error.message);
     }
@@ -102,18 +96,15 @@ const Join = ({
   const handleChange = (e) => {
     const { name, value } = e.target;
     let isValid = true;
-    if (name === 'email') {
+    if (name === "email") {
       isValid = validateEmail(value);
-    } else if (name === 'twitter_handle' || name === 'linkedin') {
+    } else if (name === "twitter_handle" || name === "linkedin") {
       isValid = validateUrl(value);
     }
 
     setFormEntries((prevVal) => ({ ...prevVal, [name]: value }));
     setValidity((prevVal) => ({ ...prevVal, [name]: isValid }));
   };
-
-
-  
 
   return (
     <div
@@ -154,7 +145,11 @@ const Join = ({
                 placeholder="Eg samplemail1234@gmail.com"
                 className={twMerge(
                   `bg-[#181818] w-full text-[#4d4d4d] p-[10px] border-b-[2px] border-[#4d4d4d] outline-none placeholder-[#4d4d4d]`,
-                  validity.email === null ? 'border-[#4d4d4d]' : (validity.email ? 'border-green-500' : 'border-red-500'),
+                  validity.email === null
+                    ? "border-[#4d4d4d]"
+                    : validity.email
+                    ? "border-green-500"
+                    : "border-red-500",
                   inputClass
                 )}
               />
@@ -173,7 +168,11 @@ const Join = ({
                 placeholder="Eg John Doe"
                 className={twMerge(
                   `bg-[#181818] w-full text-[#4d4d4d] p-[10px] border-b-[2px] border-[#4d4d4d] outline-none placeholder-[#4d4d4d]`,
-                  validity.full_name === null ? 'border-[#4d4d4d]' : (validity.full_name ? 'border-green-500 ' : 'border-red-500'),
+                  validity.full_name === null
+                    ? "border-[#4d4d4d]"
+                    : validity.full_name
+                    ? "border-green-500 "
+                    : "border-red-500",
                   inputClass
                 )}
               />
@@ -191,7 +190,11 @@ const Join = ({
                 placeholder="Eg https://x.com/account-name"
                 className={twMerge(
                   `bg-[#181818] w-full text-[#4d4d4d] p-[10px] border-b-[2px] border-[#4d4d4d] outline-none placeholder-[#4d4d4d]`,
-                  validity.twitter_handle === null ? 'border-[#4d4d4d]' : (validity.twitter_handle ? 'border-green-500' : 'border-red-500'),
+                  validity.twitter_handle === null
+                    ? "border-[#4d4d4d]"
+                    : validity.twitter_handle
+                    ? "border-green-500"
+                    : "border-red-500",
                   inputClass
                 )}
               />
@@ -209,7 +212,11 @@ const Join = ({
                 placeholder="Eg https://linkedin.com/account-name"
                 className={twMerge(
                   `bg-[#181818] w-full text-[#4d4d4d] p-[10px] border-b-[2px] border-[#4d4d4d] outline-none placeholder-[#4d4d4d]`,
-                  validity.linkedin === null ? 'border-[#4d4d4d]' : (validity.linkedin ? 'border-[#13ba00]' : 'border-[#d61010]'),
+                  validity.linkedin === null
+                    ? "border-[#4d4d4d]"
+                    : validity.linkedin
+                    ? "border-[#13ba00]"
+                    : "border-[#d61010]",
                   inputClass
                 )}
               />
@@ -356,11 +363,37 @@ const Join = ({
           </label>
         </div>
 
-        <Button  disabled={isLoading}  className="w-full bg-[#ffffff] border-[#ffffff] rounded-[4px] mt-[20px] text-[#121212] font-[700] text-[15px]">
+        <Button
+          disabled={isLoading}
+          className="w-full bg-[#ffffff] border-[#ffffff] rounded-[4px] mt-[20px] text-[#121212] font-[700] text-[15px]"
+        >
           {isLoading ? "Submitting..." : "  Submit"}
         </Button>
+        
       </form>
+     
+     {successMessage && (
+  <div className="flex items-center justify-center align-middle flex-col md:w-[524px] w-[300px] h-[250px] md:h-[365px] bg-[#181818]  text-[#ffffff] px-4 py-3 rounded relative mt-4" role="alert">
+    <div className="bg-[#13ba00] text-[#181818] md:h-[83px] md:w-[83px] w-[50px] h-[50px] rounded-[50%] flex justify-center align-middle items-center">
+    <FaCheck size={40}/>
     </div>
+    <strong className="font-[700] md:text-[24px] text-[15px] pt-[30px]">Application Submitted</strong>
+    <p className="font-[400] md:text-[12px] text-[10px] pt-[15px] px-[50px] md:w-[400px] w-[300px] text-center">Your application has been submitted and we’ll get back to you as soon as possible. While you wait for our response, you can be join our community to keep learning and networking.</p>
+  </div>
+)}
+
+{errorMessage && (
+  <div className="flex items-center justify-center align-middle flex-col md:w-[524px] w-[300px] h-[250px] md:h-[365px] bg-[#181818]  text-[#ffffff] px-4 py-3 rounded relative mt-4" role="alert">
+    <div className="bg-[#ee3300] text-[#181818] md:h-[83px] md:w-[83px] w-[50px] h-[50px] rounded-[50%] flex justify-center align-middle items-center">
+    <IoCloseSharp size={40}/>
+    </div>
+    <strong className="font-[700] md:text-[24px] text-[15px] pt-[30px]">Application Failed</strong>
+    <p className="font-[400] md:text-[12px] text-[10px] pt-[15px] px-[50px] md:w-[400px] w-[300px] text-center">Please check your internet connection or that you filled the form correctly and try again later.</p>
+    <button className="md:w-[480px] h-[51px] w-[250px] bg-[#ffffff] text-[#181818] rounded-[4px] mt-[20px] md:text-[15px] text-[13px] font-[700]">Try Again</button>
+  </div>
+)}
+  </div>
+    
   );
 };
 
