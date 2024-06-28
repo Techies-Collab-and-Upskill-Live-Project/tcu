@@ -5,6 +5,7 @@ import { RiTwitterXFill } from "react-icons/ri";
 import { RxEnvelopeClosed } from "react-icons/rx";
 
 
+
 const Footer = () => {
   return (
     <footer className="sticky top-0 md:px-[133.43px] md:py-[29px] px-[30px]  w-full flex items-center bg-[#121212] font-satoshi  backdrop-blur-md">
@@ -52,10 +53,12 @@ const Footer = () => {
           </Link>
         </div> */}
         {/* Socials */}
+
         <div className="flex gap-x-[14.13px]  text-white">
-           <RxEnvelopeClosed size={26}/>
-           <RiTwitterXFill size={24} />
-            <FaLinkedin size={24}/>
+           <Link to='mailto:tculiveprojects@gmail.com'><RxEnvelopeClosed size={26}/></Link>
+           <Link to='https://www.linkedin.com/company/techies-collab-and-upskill-on-live-project/'><RiTwitterXFill size={24} /></Link>
+            <Link to='https://x.com/tculive?t=tnTUDVem-abYrxpkn9P5XA&s=09'><FaLinkedin size={24}/></Link>
+
         </div>
       </div>
     </footer>
