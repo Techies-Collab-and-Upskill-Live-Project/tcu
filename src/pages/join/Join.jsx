@@ -48,6 +48,9 @@ const Join = ({ className, formClass, inputClass }) => {
     linkedin: null,
     about_skill: null,
     birthdate: null,
+    skill: null,
+    experience: null,
+    commitment: null,
   });
 
   const [isLoading, setIsLoading] = useState(false);
@@ -87,7 +90,9 @@ const Join = ({ className, formClass, inputClass }) => {
     if (name === "commitment" && newValue === "Maybe") {
       newValue = "No";
     }
+    let isValid = true;
     setFormEntries((prevVal) => ({ ...prevVal, [name]: newValue }));
+    setValidity((prevVal) => ({ ...prevVal, [name]: isValid }));
   };
 
   const handleSubmit = async (e) => {
@@ -206,6 +211,7 @@ const Join = ({ className, formClass, inputClass }) => {
           options={skills}
           selectedValue={formEntries.skill}
           onChange={handleRadioChange}
+          isValid={validity.skill}
           required
         />
 
@@ -222,6 +228,7 @@ const Join = ({ className, formClass, inputClass }) => {
           options={experiences}
           selectedValue={formEntries.experience}
           onChange={handleRadioChange}
+          isValid={validity.experience}
           required
         />
 
@@ -242,6 +249,7 @@ const Join = ({ className, formClass, inputClass }) => {
           options={commitments}
           selectedValue={formEntries.commitment}
           onChange={handleRadioChange}
+          isValid={validity.commitment}
           required
         />
 
@@ -294,10 +302,9 @@ const Join = ({ className, formClass, inputClass }) => {
                 className="md:w-[480px] h-[51px] w-[250px] bg-[#ffffff] text-[#181818] rounded-[4px] mt-[20px] md:text-[15px] text-[13px] font-[700]"
                 onClick={() => {
                   setModalMessage({ type: "", message: "" });
-                  window.location.href = "https://www.facebook.com/tcugroup";
                 }}
               >
-                Join Community
+                Now follow us on our socials
               </button>
             </>
           ) : (
