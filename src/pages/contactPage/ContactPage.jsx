@@ -2,6 +2,9 @@ import { twMerge } from "tailwind-merge";
 import Button from "../../components/Button";
 import { useState } from "react";
 import axios from "axios";
+import { showToast } from "../../components/toaster";
+
+const baseUrl = import.meta.env.VITE_API_URL;
 
 const ContactPage = ({
   className,
@@ -10,6 +13,8 @@ const ContactPage = ({
   inputClass,
   textAreaClass,
 }) => {
+  const [isLoading, setIsLoading] = useState(false);
+
   const [values, setValues] = useState({
     companyName: "",
     email: "",
@@ -30,16 +35,18 @@ const ContactPage = ({
       console.log(message);
     } else {
       console.log("okay!");
-
+      setIsLoading(true);
       axios
-        .post(`https://tcu-backend-one.onrender.com/api/v1/contactus/`, {
+        .post(`${baseUrl}/contactus/`, {
           name: values.companyName,
           email: values.email,
           message: values.message,
         })
         .then((response) => {
-          console.log("success!");
-          console.log(response);
+          showToast(
+            "Enquiry successfully sent. Please check your mail for update shortly",
+            "success"
+          );
           setValues((prev) => ({
             companyName: "",
             email: "",
@@ -47,6 +54,7 @@ const ContactPage = ({
           }));
         })
         .catch((err) => {
+          setIsLoading(false);
           console.log(err.response);
         });
     }
@@ -121,7 +129,7 @@ const ContactPage = ({
             onclick={handleSubmit}
             className="w-full bg-[#fff] border-none rounded-[4px] mt-[20px] text-[#121212] font-[700] text-[7.74px] lg:text-[15px] lg:leading-[24px] leading-[12.39px]"
           >
-            Send Message
+            {isLoading ? "Submitting..." : "Send Message"}
           </Button>
         </form>
       </div>
