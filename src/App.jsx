@@ -7,10 +7,8 @@ import Hire from "./pages/hire/Hire";
 import PortfolioGrid from "./pages/portfolio/PortfolioGrid";
 import Portfolio from "./pages/portfolio/Portfolio";
 import ContactPage from "./pages/contactPage/ContactPage";
-import Join from "./join/Join";
+import Join from "./pages/join/Join";
 import { Toaster } from "sonner";
-
-
 
 function App() {
   return (
@@ -29,7 +27,6 @@ function App() {
         <Footer />
       </div>
     </Router>
-    
   );
 }
 
