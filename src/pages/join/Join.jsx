@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import { twMerge } from "tailwind-merge";
 import axios from "axios";
-import { toast } from "sonner";
+// import { toast } from "sonner";
 import { showToast } from "../../components/toaster";
 import { IoCloseSharp } from "react-icons/io5";
 import { FaCheck } from "react-icons/fa6";
-import DatePicker from "react-datepicker";
+// import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import InputField from "./components/InputField";
 import RadioGroup from "./components/RadioGroup";
 import Button from "../../components/Button";
 import Download from "../../components/Download";
 import Modal from "./components/Modal";
+import { Link } from "react-router-dom"
 
 const baseUrl = import.meta.env.VITE_API_URL;
 
@@ -193,6 +194,7 @@ const Join = ({ className, formClass, inputClass }) => {
             required
             inputClass={inputClass}
           />
+          <div className="mb-[20px]">
           <InputField
             label="LinkedIn"
             name="linkedin"
@@ -203,6 +205,7 @@ const Join = ({ className, formClass, inputClass }) => {
             required
             inputClass={inputClass}
           />
+          </div>
         </div>
 
         <RadioGroup
@@ -221,7 +224,7 @@ const Join = ({ className, formClass, inputClass }) => {
             <Download />
           </label>
         </div>
-
+        <div className="mt-[20px]">
         <RadioGroup
           label="Experience (Please be honest)"
           name="experience"
@@ -230,8 +233,10 @@ const Join = ({ className, formClass, inputClass }) => {
           onChange={handleRadioChange}
           isValid={validity.experience}
           required
+          className="mt-[20px]"
         />
-
+        </div>
+        <div className="mt-[20px]">
         <InputField
           label="Please tell us what you know about this skill"
           name="about_skill"
@@ -242,7 +247,8 @@ const Join = ({ className, formClass, inputClass }) => {
           required
           inputClass={inputClass}
         />
-
+        </div>
+        <div className="mt-[20px]">
         <RadioGroup
           label="This project will require your attention, are you willing to be committed? (We really don’t expect an answer that’s not yes)"
           name="commitment"
@@ -252,7 +258,8 @@ const Join = ({ className, formClass, inputClass }) => {
           isValid={validity.commitment}
           required
         />
-
+        </div>
+         <div className="mt-[20px]">
         <InputField
           label="Birthday Date"
           name="birthdate"
@@ -262,7 +269,7 @@ const Join = ({ className, formClass, inputClass }) => {
           isValid={validity.birthdate}
           inputClass={inputClass}
         />
-
+        </div>
         <Button
           disabled={
             isLoading ||
@@ -287,6 +294,7 @@ const Join = ({ className, formClass, inputClass }) => {
         >
           {modalMessage.type === "success" ? (
             <>
+            <div className="flex flex-col justify-center align-middle items-center">
               <div className="bg-[#13ba00] text-[#181818] md:h-[83px] md:w-[83px] w-[50px] h-[50px] rounded-[50%] flex justify-center align-middle items-center">
                 <FaCheck size={40} />
               </div>
@@ -298,7 +306,7 @@ const Join = ({ className, formClass, inputClass }) => {
                 soon as possible. While you wait for our response, you can join
                 our community to keep learning and networking.
               </p>
-              <button
+              <Link to='https://www.linkedin.com/company/techies-collab-and-upskill-on-live-project/'><button
                 className="md:w-[480px] h-[51px] w-[250px] bg-[#ffffff] text-[#181818] rounded-[4px] mt-[20px] md:text-[15px] text-[13px] font-[700]"
                 onClick={() => {
                   setModalMessage({ type: "", message: "" });
@@ -306,9 +314,12 @@ const Join = ({ className, formClass, inputClass }) => {
               >
                 Now follow us on our socials
               </button>
+              </Link>
+              </div>
             </>
           ) : (
             <>
+            <div className="flex flex-col justify-center align-middle items-center">
               <div className="bg-[#ee3300] text-[#181818] md:h-[83px] md:w-[83px] w-[50px] h-[50px] rounded-[50%] flex justify-center align-middle items-center">
                 <IoCloseSharp size={40} />
               </div>
@@ -325,6 +336,7 @@ const Join = ({ className, formClass, inputClass }) => {
               >
                 Try Again
               </button>
+              </div>
             </>
           )}
         </Modal>
