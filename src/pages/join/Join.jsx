@@ -303,8 +303,7 @@ const Join = ({ className, formClass, inputClass }) => {
               </strong>
               <p className="font-[400] text-[#f8fafc] md:text-[12px] text-[10px] pt-[15px] px-[50px] md:w-[400px] w-[300px] text-center">
                 Your application has been submitted and we’ll get back to you as
-                soon as possible. While you wait for our response, you can join
-                our community to keep learning and networking.
+                soon as possible.
               </p>
               <Link to='https://www.linkedin.com/company/techies-collab-and-upskill-on-live-project/'><button
                 className="md:w-[480px] h-[51px] w-[250px] bg-[#ffffff] text-[#181818] rounded-[4px] mt-[20px] md:text-[15px] text-[13px] font-[700]"
