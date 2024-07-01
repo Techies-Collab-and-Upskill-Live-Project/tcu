@@ -56,8 +56,8 @@ const Footer = () => {
 
         <div className="flex gap-x-[14.13px]  text-white">
            <Link to='mailto:tculiveprojects@gmail.com'><RxEnvelopeClosed size={26}/></Link>
-           <Link to='https://www.linkedin.com/company/techies-collab-and-upskill-on-live-project/'><RiTwitterXFill size={24} /></Link>
-            <Link to='https://x.com/tculive?t=tnTUDVem-abYrxpkn9P5XA&s=09'><FaLinkedin size={24}/></Link>
+           <Link to='https://x.com/tculive?t=tnTUDVem-abYrxpkn9P5XA&s=09'><RiTwitterXFill size={24} /></Link>
+            <Link to='https://www.linkedin.com/company/techies-collab-and-upskill-on-live-project/'><FaLinkedin size={24}/></Link>
 
         </div>
       </div>
