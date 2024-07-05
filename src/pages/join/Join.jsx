@@ -12,7 +12,7 @@ import RadioGroup from "./components/RadioGroup";
 import Button from "../../components/Button";
 import Download from "../../components/Download";
 import Modal from "./components/Modal";
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 const baseUrl = import.meta.env.VITE_API_URL;
 
@@ -56,6 +56,7 @@ const Join = ({ className, formClass, inputClass }) => {
 
   const [isLoading, setIsLoading] = useState(false);
   const [modalMessage, setModalMessage] = useState({ type: "", message: "" });
+  const [isShaking, setIsShaking] = useState(false);
 
   const validateEmail = (email) =>
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email).toLowerCase());
@@ -96,15 +97,34 @@ const Join = ({ className, formClass, inputClass }) => {
     setValidity((prevVal) => ({ ...prevVal, [name]: isValid }));
   };
 
+  const handleFileSelect = (file) => {
+    setFormEntries((prevVal) => ({ ...prevVal, certificate: file }));
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    if (!validity.twitter_handle) {
+      showToast("Invalid Twitter URL format", "error");
+      return;
+    }
 
+    if (!validity.linkedin | !validity.twitter_handle) {
+      showToast("Invalid Linkedin URL format", "error");
+      return;
+    }
     const isValid = Object.values(validity).every((v) => v);
-    console.log("isValid", isValid);
-    if (!isValid) {
-      // toast.error();
+    if (
+      !isValid ||
+      Object.values(formEntries).some(
+        (val) =>
+          val === "" &&
+          val !== formEntries.birthdate &&
+          val !== formEntries.certificate
+      )
+    ) {
       showToast("Please fill out all required fields correctly.", "error");
-
+      setIsShaking(true);
+      setTimeout(() => setIsShaking(false), 500);
       return;
     }
 
@@ -185,26 +205,26 @@ const Join = ({ className, formClass, inputClass }) => {
             inputClass={inputClass}
           />
           <InputField
-            label="Twitter"
+            label="Twitter Handle (E.g https://x.com/account-name)"
             name="twitter_handle"
             value={formEntries.twitter_handle}
             onChange={handleChange}
-            placeholder="Eg https://x.com/account-name"
+            placeholder="E.g https://x.com/account-name"
             isValid={validity.twitter_handle}
             required
             inputClass={inputClass}
           />
           <div className="mb-[20px]">
-          <InputField
-            label="LinkedIn"
-            name="linkedin"
-            value={formEntries.linkedin}
-            onChange={handleChange}
-            placeholder="Eg https://linkedin.com/account-name"
-            isValid={validity.linkedin}
-            required
-            inputClass={inputClass}
-          />
+            <InputField
+              label="LinkedIn Profile (E.g https://www.linkedin.com/in/account-name/"
+              name="linkedin"
+              value={formEntries.linkedin}
+              onChange={handleChange}
+              placeholder="Eg https://www.linkedin.com/in/account-name/"
+              isValid={validity.linkedin}
+              required
+              inputClass={inputClass}
+            />
           </div>
         </div>
 
@@ -221,67 +241,60 @@ const Join = ({ className, formClass, inputClass }) => {
         <div className="bg-[#181818] w-full rounded-[12px] p-[20px] mt-[20px]">
           <label className="text-[#9c9c9c] md:text-[18px] text-[12px] font-[700]">
             Upload a certificate of related field <i>(optional)</i>
-            <Download />
+            <Download onFileSelect={handleFileSelect} />
           </label>
         </div>
         <div className="mt-[20px]">
-        <RadioGroup
-          label="Experience (Please be honest)"
-          name="experience"
-          options={experiences}
-          selectedValue={formEntries.experience}
-          onChange={handleRadioChange}
-          isValid={validity.experience}
-          required
-          className="mt-[20px]"
-        />
+          <RadioGroup
+            label="Experience (Please be honest)"
+            name="experience"
+            options={experiences}
+            selectedValue={formEntries.experience}
+            onChange={handleRadioChange}
+            isValid={validity.experience}
+            required
+            className="mt-[20px]"
+          />
         </div>
         <div className="mt-[20px]">
-        <InputField
-          label="Please tell us what you know about this skill"
-          name="about_skill"
-          value={formEntries.about_skill}
-          onChange={handleChange}
-          placeholder="Describe your knowledge"
-          isValid={validity.about_skill}
-          required
-          inputClass={inputClass}
-        />
+          <InputField
+            label="Please tell us what you know about this skill"
+            name="about_skill"
+            value={formEntries.about_skill}
+            onChange={handleChange}
+            placeholder="Describe your knowledge"
+            isValid={validity.about_skill}
+            required
+            inputClass={inputClass}
+          />
         </div>
         <div className="mt-[20px]">
-        <RadioGroup
-          label="This project will require your attention, are you willing to be committed? (We really don’t expect an answer that’s not yes)"
-          name="commitment"
-          options={commitments}
-          selectedValue={formEntries.commitment}
-          onChange={handleRadioChange}
-          isValid={validity.commitment}
-          required
-        />
+          <RadioGroup
+            label="This project will require your attention, are you willing to be committed? (We really don’t expect an answer that’s not yes)"
+            name="commitment"
+            options={commitments}
+            selectedValue={formEntries.commitment}
+            onChange={handleRadioChange}
+            isValid={validity.commitment}
+            required
+          />
         </div>
-         <div className="mt-[20px]">
-        <InputField
-          label="Birthday Date"
-          name="birthdate"
-          value={formEntries.birthdate}
-          onChange={handleDateChange}
-          placeholder="Enter your birth date"
-          isValid={validity.birthdate}
-          inputClass={inputClass}
-        />
+        <div className="mt-[20px]">
+          <InputField
+            label="Birthday Date"
+            name="birthdate"
+            value={formEntries.birthdate}
+            onChange={handleDateChange}
+            placeholder="Enter your birth date"
+            isValid={validity.birthdate}
+            inputClass={inputClass}
+          />
         </div>
         <Button
-          disabled={
-            isLoading ||
-            Object.values(validity).includes(false) ||
-            Object.values(formEntries).some(
-              (val) =>
-                val === "" &&
-                val !== formEntries.birthdate &&
-                val !== formEntries.certificate
-            )
-          }
-          className="w-full bg-[#ffffff] border-[#ffffff] rounded-[4px] mt-[20px] text-[#121212] font-[700] text-[15px]"
+          className={twMerge(
+            `w-full bg-[#ffffff] border-[#ffffff] rounded-[4px] mt-[20px] text-[#121212] font-[700] text-[15px]`,
+            isShaking ? "shake" : ""
+          )}
         >
           {isLoading ? "Submitting..." : "Submit"}
         </Button>
@@ -294,47 +307,48 @@ const Join = ({ className, formClass, inputClass }) => {
         >
           {modalMessage.type === "success" ? (
             <>
-            <div className="flex flex-col justify-center align-middle items-center">
-              <div className="bg-[#13ba00] text-[#181818] md:h-[83px] md:w-[83px] w-[50px] h-[50px] rounded-[50%] flex justify-center align-middle items-center">
-                <FaCheck size={40} />
-              </div>
-              <strong className="font-[900] text-[#f8fafc] md:text-[24px] text-[15px] pt-[30px]">
-                Application Submitted
-              </strong>
-              <p className="font-[400] text-[#f8fafc] md:text-[12px] text-[10px] pt-[15px] px-[50px] md:w-[400px] w-[300px] text-center">
-                Your application has been submitted and we’ll get back to you as
-                soon as possible.
-              </p>
-              <Link to='https://www.linkedin.com/company/techies-collab-and-upskill-on-live-project/'><button
-                className="md:w-[480px] h-[51px] w-[250px] bg-[#ffffff] text-[#181818] rounded-[4px] mt-[20px] md:text-[15px] text-[13px] font-[700]"
-                onClick={() => {
-                  setModalMessage({ type: "", message: "" });
-                }}
-              >
-                Now follow us on our socials
-              </button>
-              </Link>
+              <div className="flex flex-col justify-center align-middle items-center">
+                <div className="bg-[#13ba00] text-[#181818] md:h-[83px] md:w-[83px] w-[50px] h-[50px] rounded-[50%] flex justify-center align-middle items-center">
+                  <FaCheck size={40} />
+                </div>
+                <strong className="font-[900] text-[#f8fafc] md:text-[24px] text-[15px] pt-[30px]">
+                  Application Submitted
+                </strong>
+                <p className="font-[400] text-[#f8fafc] md:text-[12px] text-[10px] pt-[15px] px-[50px] md:w-[400px] w-[300px] text-center">
+                  Your application has been submitted and we’ll get back to you
+                  as soon as possible.
+                </p>
+                <Link to="https://www.linkedin.com/company/techies-collab-and-upskill-on-live-project/">
+                  <button
+                    className="md:w-[480px] h-[51px] w-[250px] bg-[#ffffff] text-[#181818] rounded-[4px] mt-[20px] md:text-[15px] text-[13px] font-[700]"
+                    onClick={() => {
+                      setModalMessage({ type: "", message: "" });
+                    }}
+                  >
+                    Now follow us on our socials
+                  </button>
+                </Link>
               </div>
             </>
           ) : (
             <>
-            <div className="flex flex-col justify-center align-middle items-center">
-              <div className="bg-[#ee3300] text-[#181818] md:h-[83px] md:w-[83px] w-[50px] h-[50px] rounded-[50%] flex justify-center align-middle items-center">
-                <IoCloseSharp size={40} />
-              </div>
-              <strong className="font-[700] text-[#f8fafc] md:text-[24px] text-[15px] pt-[30px]">
-                Application Failed
-              </strong>
-              <p className="font-[400] text-[#f8fafc] md:text-[12px] text-[10px] pt-[15px] px-[50px] md:w-[400px] w-[300px] text-center">
-                Please check your internet connection or that you filled the
-                form correctly and try again later.
-              </p>
-              <button
-                className="md:w-[480px] h-[51px] w-[250px] bg-[#ffffff] text-[#181818] rounded-[4px] mt-[20px] md:text-[15px] text-[13px] font-[700]"
-                onClick={() => setModalMessage({ type: "", message: "" })}
-              >
-                Try Again
-              </button>
+              <div className="flex flex-col justify-center align-middle items-center">
+                <div className="bg-[#ee3300] text-[#181818] md:h-[83px] md:w-[83px] w-[50px] h-[50px] rounded-[50%] flex justify-center align-middle items-center">
+                  <IoCloseSharp size={40} />
+                </div>
+                <strong className="font-[700] text-[#f8fafc] md:text-[24px] text-[15px] pt-[30px]">
+                  Application Failed
+                </strong>
+                <p className="font-[400] text-[#f8fafc] md:text-[12px] text-[10px] pt-[15px] px-[50px] md:w-[400px] w-[300px] text-center">
+                  Please check your internet connection or that you filled the
+                  form correctly and try again later.
+                </p>
+                <button
+                  className="md:w-[480px] h-[51px] w-[250px] bg-[#ffffff] text-[#181818] rounded-[4px] mt-[20px] md:text-[15px] text-[13px] font-[700]"
+                  onClick={() => setModalMessage({ type: "", message: "" })}
+                >
+                  Try Again
+                </button>
               </div>
             </>
           )}
