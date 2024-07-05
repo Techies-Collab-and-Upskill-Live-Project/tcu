@@ -52,6 +52,7 @@ const ContactPage = ({
             email: "",
             message: "",
           }));
+          setIsLoading(false);
         })
         .catch((err) => {
           setIsLoading(false);
