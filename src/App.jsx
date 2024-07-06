@@ -9,6 +9,7 @@ import Portfolio from "./pages/portfolio/Portfolio";
 import ContactPage from "./pages/contactPage/ContactPage";
 import Join from "./pages/join/Join";
 import { Toaster } from "sonner";
+import UserList from "./components/Admin/UserList";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="join" element={<Join />} />
           <Route path="portfolio" element={<Portfolio />} />
           <Route path="contact" element={<ContactPage />} />
+          <Route path="user" element={<UserList />} />
         </Routes>
         <Footer />
       </div>
