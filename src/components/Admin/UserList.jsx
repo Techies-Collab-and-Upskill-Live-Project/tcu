@@ -1,42 +1,68 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import DisplayUser from "./DisplayUser";
 import axios from "axios";
+import { showToast } from "../toaster";
+import { formatDate } from "../../utils";
+
+const baseUrl = import.meta.env.VITE_API_URL;
 
 const UserList = () => {
-  const [users, setUser] = useState([]);
+  const [users, setUsers] = useState([]);
 
-  const getUser = async () => {
-    try {
-      const userData = await axios.get(
-        "https://tcu-backend-one.onrender.com/api/v1/internship/applications/"
-      );
+  useEffect(() => {
+    const getUser = async () => {
+      try {
+        const userData = await axios.get(`${baseUrl}/internship/applications/`);
+        setUsers(userData.data.applications);
+      } catch (error) {
+        console.log(error);
+      }
+    };
 
-      setUser(userData.data.applications)
-    //   console.log(userData.data.applications);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+    getUser();
+  }, []); // Empty dependency array ensures this runs only once on mount
 
-  getUser();
+  //   const handleDelete = async (id, index) => {
+  //     const confirmed = window.confirm("Are you sure you want to delete?");
+  //     if (confirmed) {
+  //       try {
+  //         await axios.delete(`${baseUrl}/internship/applications/delete/${id}`);
+  //         setUsers(users.filter((_, i) => i !== index));
+  //         showToast("Application deleted Successfully", "success");
+  //       } catch (error) {
+  //         showToast("An error occured", "error");
+  //         console.log(error);
+  //       }
+  //     }
+  //   };
 
-  console.log(users);
+  const applicationCount = users.length;
+  const applicationText =
+    applicationCount === 0
+      ? "No Applications"
+      : applicationCount === 1
+      ? "1 Application"
+      : `${applicationCount} Applications`;
 
   return (
-    <div className="lg:px-[104px] px-[21px]">
+    <div className="relative lg:px-[104px] px-[21px]">
+      <div className="absolute right-4 bg-blue-500 text-white p-2 rounded">
+        {applicationText}
+      </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-        {users && users.map((item, index) => (
-            <DisplayUser name={item.full_name} skill={item.skill} email={item.email} />
-        ))}
-        {/* {users.map((item, index) => (
-          <DisplayUser
-            key={index}
-            item={item}
-            name={item.full_name}
-            email={item.email}
-            skill={item.skill}
-          />
-        ))} */}
+        {users &&
+          users.map((item, index) => (
+            <DisplayUser
+              key={index}
+              index={index}
+              id={item.id}
+              name={item.full_name}
+              skill={item.skill}
+              email={item.email}
+              applicationDate={formatDate(item.date_created)}
+              //   onDelete={handleDelete}
+            />
+          ))}
       </div>
     </div>
   );
