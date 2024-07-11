@@ -6,11 +6,14 @@ const allowedExtensions = ["jpeg", "png", "pdf", "docx"];
 
 const Download = ({ onFileSelect }) => {
   const [fileName, setFileName] = useState("");
+  const maxSize = 5 * 1024 * 1024; // 5MB in bytes
 
   const handleFileUpload = (e) => {
     const file = e.target.files[0];
     if (file) {
       const fileExtension = file.name.split(".").pop().toLowerCase();
+      const fileSize = file.size;
+      // Check file extension
       if (!allowedExtensions.includes(fileExtension)) {
         showToast(
           "Invalid file type. Allowed types are: .jpeg, .png, .pdf, .docx",
@@ -18,6 +21,13 @@ const Download = ({ onFileSelect }) => {
         );
         return;
       }
+
+      // Check file size
+      if (fileSize > maxSize) {
+        showToast("File size exceeds 5MB limit.", "error");
+        return;
+      }
+
       setFileName(file.name);
       onFileSelect(file);
     }

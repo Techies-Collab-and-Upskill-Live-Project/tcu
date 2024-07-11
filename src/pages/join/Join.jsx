@@ -240,7 +240,7 @@ const Join = ({ className, formClass, inputClass }) => {
 
         <div className="bg-[#181818] w-full rounded-[12px] p-[20px] mt-[20px]">
           <label className="text-[#9c9c9c] md:text-[18px] text-[12px] font-[700]">
-            Upload a certificate of related field <i>(optional)</i>
+            Upload a certificate of related field <i>(optional) MAX Size 5MB</i>
             <Download onFileSelect={handleFileSelect} />
           </label>
         </div>
