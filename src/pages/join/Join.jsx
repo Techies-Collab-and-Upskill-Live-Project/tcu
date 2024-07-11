@@ -60,10 +60,17 @@ const Join = ({ className, formClass, inputClass }) => {
 
   const validateEmail = (email) =>
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email).toLowerCase());
-  const validateUrl = (url) =>
-    /^(https?:\/\/)?([\w\-])+\.{1}([a-zA-Z]{2,63})([\/\w \.-]*)*\/?$/.test(
-      String(url).toLowerCase()
+  const validateUrl = (url) => {
+    const urlPattern = new RegExp(
+      "^(https?:\\/\\/)?" + // protocol
+        "((([a-zA-Z\\d]([a-zA-Z\\d-]*[a-zA-Z\\d])*)\\.?)+[a-zA-Z]{2,})" + // domain name
+        "(\\:\\d+)?(\\/[-a-zA-Z\\d%_.~+]*)*" + // port and path
+        "(\\?[;&a-zA-Z\\d%_.~+=-]*)?" + // query string
+        "(\\#[-a-zA-Z\\d_]*)?$", // fragment locator
+      "i"
     );
+    return !!urlPattern.test(url);
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
