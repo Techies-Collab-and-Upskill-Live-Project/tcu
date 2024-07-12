@@ -13,6 +13,7 @@ import Button from "../../components/Button";
 import Download from "../../components/Download";
 import Modal from "./components/Modal";
 import { Link } from "react-router-dom";
+import validator from "validator";
 
 const baseUrl = import.meta.env.VITE_API_URL;
 
@@ -29,6 +30,7 @@ const experiences = ["Novice", "Intermediate", "Advanced", "Expert"];
 const commitments = ["Yes", "No", "Maybe"];
 
 const Join = ({ className, formClass, inputClass }) => {
+  const [formattedBirthdate, setFormattedBirthdate] = useState("");
   const [formEntries, setFormEntries] = useState({
     certificate: "",
     email: "",
@@ -39,7 +41,7 @@ const Join = ({ className, formClass, inputClass }) => {
     experience: "",
     about_skill: "",
     commitment: false,
-    birthdate: "",
+    birthdate: { month: "", day: "" },
   });
 
   const [validity, setValidity] = useState({
@@ -60,10 +62,9 @@ const Join = ({ className, formClass, inputClass }) => {
 
   const validateEmail = (email) =>
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email).toLowerCase());
-  const validateUrl = (url) =>
-    /^(https?:\/\/)?([\w\-])+\.{1}([a-zA-Z]{2,63})([\/\w \.-]*)*\/?$/.test(
-      String(url).toLowerCase()
-    );
+  const validateUrl = (url) => {
+    return validator.isURL(url);
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -73,17 +74,23 @@ const Join = ({ className, formClass, inputClass }) => {
     if (name === "twitter_handle" || name === "linkedin")
       isValid = validateUrl(value);
 
-    setFormEntries((prevVal) => ({ ...prevVal, [name]: value }));
-    setValidity((prevVal) => ({ ...prevVal, [name]: isValid }));
-  };
+    if (name.includes("birthdate")) {
+      const [field, part] = name.split("-");
+      const formattedValue = value.padStart(2, "0");
+      const newBirthdate = { ...formEntries.birthdate, [part]: formattedValue };
+      isValid = newBirthdate.month && newBirthdate.day;
+      const birthdateFormatted = `1990-${newBirthdate.month}-${newBirthdate.day}`;
 
-  const handleDateChange = (date) => {
-    const isValid = date !== "";
-    setFormEntries((prevVals) => ({
-      ...prevVals,
-      birthdate: date ? date.toISOString().slice(0, 10) : "",
-    }));
-    setValidity((prevVal) => ({ ...prevVal, birthdate: isValid }));
+      setFormEntries((prevVals) => ({
+        ...prevVals,
+        birthdate: newBirthdate,
+      }));
+      setFormattedBirthdate(isValid ? birthdateFormatted : "");
+      setValidity((prevVal) => ({ ...prevVal, birthdate: isValid }));
+    } else {
+      setFormEntries((prevVal) => ({ ...prevVal, [name]: value }));
+      setValidity((prevVal) => ({ ...prevVal, [name]: isValid }));
+    }
   };
 
   const handleRadioChange = (e) => {
@@ -108,7 +115,7 @@ const Join = ({ className, formClass, inputClass }) => {
       return;
     }
 
-    if (!validity.linkedin | !validity.twitter_handle) {
+    if (!validity.linkedin) {
       showToast("Invalid Linkedin URL format", "error");
       return;
     }
@@ -130,7 +137,11 @@ const Join = ({ className, formClass, inputClass }) => {
 
     const formData = new FormData();
     for (const [key, value] of Object.entries(formEntries)) {
-      formData.append(key, value);
+      if (key !== "birthdate") {
+        formData.append(key, value);
+      } else {
+        formData.append("birthdate", formattedBirthdate);
+      }
     }
 
     try {
@@ -148,7 +159,6 @@ const Join = ({ className, formClass, inputClass }) => {
         message: "Application Submitted Successfully!",
       });
     } catch (error) {
-      console.log("error", error);
       setIsLoading(false);
       setModalMessage({
         type: "error",
@@ -240,7 +250,7 @@ const Join = ({ className, formClass, inputClass }) => {
 
         <div className="bg-[#181818] w-full rounded-[12px] p-[20px] mt-[20px]">
           <label className="text-[#9c9c9c] md:text-[18px] text-[12px] font-[700]">
-            Upload a certificate of related field <i>(optional)</i>
+            Upload a certificate of related field <i>(optional) MAX Size 5MB</i>
             <Download onFileSelect={handleFileSelect} />
           </label>
         </div>
@@ -284,7 +294,7 @@ const Join = ({ className, formClass, inputClass }) => {
             label="Birthday Date"
             name="birthdate"
             value={formEntries.birthdate}
-            onChange={handleDateChange}
+            onChange={handleChange}
             placeholder="Enter your birth date"
             isValid={validity.birthdate}
             inputClass={inputClass}

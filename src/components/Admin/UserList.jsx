@@ -16,7 +16,7 @@ const UserList = () => {
         const userData = await axios.get(`${baseUrl}/internship/applications/`);
         setUsers(userData.data.applications);
       } catch (error) {
-        console.log(error);
+        showToast("An Error occured", "error");
       } finally {
         setLoading(false); // Set loading to false once data is fetched
       }
@@ -24,20 +24,6 @@ const UserList = () => {
 
     getUser();
   }, []); // Empty dependency array ensures this runs only once on mount
-
-  //   const handleDelete = async (id, index) => {
-  //     const confirmed = window.confirm("Are you sure you want to delete?");
-  //     if (confirmed) {
-  //       try {
-  //         await axios.delete(`${baseUrl}/internship/applications/delete/${id}`);
-  //         setUsers(users.filter((_, i) => i !== index));
-  //         showToast("Application deleted Successfully", "success");
-  //       } catch (error) {
-  //         showToast("An error occured", "error");
-  //         console.log(error);
-  //       }
-  //     }
-  //   };
 
   const applicationCount = users.length;
   const applicationText =
