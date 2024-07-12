@@ -25,16 +25,13 @@ const ContactPage = ({
   const handleChange = (e) => {
     const { name, value } = e.target;
     setValues((prevVals) => ({ ...prevVals, [name]: value }));
-    // console.log(values);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (values.companyName === "" || values.email === "") {
       setMessage("Inputs cannot be empty");
-      console.log(message);
     } else {
-      console.log("okay!");
       setIsLoading(true);
       axios
         .post(`${baseUrl}/contactus/`, {
@@ -56,7 +53,6 @@ const ContactPage = ({
         })
         .catch((err) => {
           setIsLoading(false);
-          console.log(err.response);
         });
     }
   };
