@@ -13,7 +13,7 @@ const Footer = () => {
         <div className="flex md:gap-[1rem] gap-[0.5rem] align-middle justify-center items-center">
         <img src={logo} alt="logo" className="lg:w-[41px] lg:h-[53.66px] w-[20px] h-[40px] " />
         <p className="lg:text-[32px] text-[12px] font-[500] text-[#ffffff]">TCU</p>
-        </div>
+         </div>
         {/* Links */}
         {/* <div className="flex max-lg:flex-col max-lg:text-center max-lg:mt-[48px] max-lg:gap-y-[49px] gap-x-[49px] font-[700] text-[16px] leading-[27px] tracking-[1%]">
           <Link
