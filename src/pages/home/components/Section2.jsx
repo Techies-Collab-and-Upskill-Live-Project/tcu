@@ -55,7 +55,7 @@ const Section2 = () => {
             >
               Learn More
             </Button>
-          </div>
+           </div>
         </div>
       </div>
     </div>

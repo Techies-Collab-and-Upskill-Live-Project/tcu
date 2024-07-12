@@ -136,7 +136,7 @@ const NewPortfolio = () => {
           </div>
         </div>
       </div>
-    </div>
+     </div>
   );
 };
 

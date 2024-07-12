@@ -94,7 +94,7 @@ const TopNav = () => {
               }
             >
               Service
-            </NavLink>
+             </NavLink>
             {/* <NavLink
               to="/join"
               onClick={()=>setIsOpen(false)}

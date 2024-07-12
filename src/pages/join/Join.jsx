@@ -318,14 +318,14 @@ const Join = ({ className, formClass, inputClass }) => {
                   Your application has been submitted and we’ll get back to you
                   as soon as possible.
                 </p>
-                <Link to="https://www.linkedin.com/company/techies-collab-and-upskill-on-live-project/">
+                <Link to="https://chat.whatsapp.com/CiPpXYyhtTxLVRkr2zZxlP">
                   <button
                     className="md:w-[480px] h-[51px] w-[250px] bg-[#ffffff] text-[#181818] rounded-[4px] mt-[20px] md:text-[15px] text-[13px] font-[700]"
                     onClick={() => {
                       setModalMessage({ type: "", message: "" });
                     }}
                   >
-                    Now follow us on our socials
+                    Join Community
                   </button>
                 </Link>
               </div>

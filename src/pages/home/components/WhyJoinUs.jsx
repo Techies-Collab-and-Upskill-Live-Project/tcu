@@ -27,7 +27,7 @@ const WhyJoinUs = () => {
                 Fill entry form
               </Button>
      </Link>
-    </div>
+     </div>
   );
 }
 
