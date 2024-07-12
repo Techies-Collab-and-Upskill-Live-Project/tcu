@@ -1,14 +1,25 @@
 import React, { useState } from "react";
 import { GoUpload } from "react-icons/go";
+import { showToast } from "./toaster";
 
-const Download = () => {
+const allowedExtensions = ["jpeg", "png", "pdf", "docx"];
+
+const Download = ({ onFileSelect }) => {
   const [fileName, setFileName] = useState("");
 
   const handleFileUpload = (e) => {
     const file = e.target.files[0];
     if (file) {
+      const fileExtension = file.name.split(".").pop().toLowerCase();
+      if (!allowedExtensions.includes(fileExtension)) {
+        showToast(
+          "Invalid file type. Allowed types are: .jpeg, .png, .pdf, .docx",
+          "error"
+        );
+        return;
+      }
       setFileName(file.name);
-      console.log(file.name);
+      onFileSelect(file);
     }
   };
 
@@ -34,7 +45,7 @@ const Download = () => {
         </p>
       )}
       <p className="md:text-[20px] text-[12px] font-[400] text-[#4D4D4D] pt-[20px]">
-        .Jpeg, .png, .pdf, .docx
+        .jpeg, .png, .pdf, .docx
       </p>
      </div>
   );
