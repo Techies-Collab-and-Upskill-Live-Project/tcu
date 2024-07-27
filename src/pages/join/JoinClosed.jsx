@@ -1,4 +1,3 @@
-import React from 'react';
 import { FaWhatsapp, FaExclamationTriangle, FaHandPointDown } from "react-icons/fa";
 
 const JoinClosed = () => {
