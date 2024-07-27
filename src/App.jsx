@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Home from "./pages/home/Home";
 import About from "./pages/about/About";
 import TopNav from "./components/TopNav";
@@ -11,6 +11,7 @@ import Join from "./pages/join/Join";
 import { Toaster } from "sonner";
 import UserList from "./components/Admin/UserList";
 import UserDetails from "./components/Admin/UserDetails";
+import JoinClosed from "./pages/join/JoinClosed";
 
 function App() {
   return (
@@ -22,7 +23,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="hire-us" element={<Hire />} />
-          <Route path="join" element={<Join />} />
+          <Route path="join" element={<Navigate to="/join-closed" replace />} />
+          <Route path="join-closed" element={<JoinClosed />} />
           <Route path="portfolio" element={<Portfolio />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="user" element={<UserList />} />
