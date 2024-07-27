@@ -80,7 +80,7 @@ const ContactPage = ({
             every step of the way. Together, we'll build a robust and successful
             project.
           </p>
-        </div>
+         </div>
 
         <form
           className={twMerge(

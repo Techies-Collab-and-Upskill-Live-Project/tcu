@@ -57,7 +57,7 @@ const Download = ({ onFileSelect }) => {
       <p className="md:text-[20px] text-[12px] font-[400] text-[#4D4D4D] pt-[20px]">
         .jpeg, .png, .pdf, .docx
       </p>
-    </div>
+     </div>
   );
 };
 
