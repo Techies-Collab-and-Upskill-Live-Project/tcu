@@ -1,5 +1,5 @@
 import { PiArrowCircleDownLight, PiArrowCircleUpLight } from "react-icons/pi";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { images } from "./NewPortfolioData";
 import { Link } from "react-router-dom";
 
@@ -7,12 +7,21 @@ const NewPortfolio = () => {
   const [openPortfolio, setOpenPortfolio] = useState(false);
   const [openDesign, setOpenDesign] = useState(false);
 
-  const ToggleDesign = (e) => {
-    setOpenDesign((prev) => !prev);
-  };
+  const sliderRefDesign = useRef(null);
+  const sliderRefPortfolio = useRef(null);
 
-  const TogglePortfolio = (e) => {
-    setOpenPortfolio((prev) => !prev);
+  const toggleDesign = () => setOpenDesign(!openDesign);
+  const togglePortfolio = () => setOpenPortfolio(!openPortfolio);
+
+  const scrollFunction = (container) => {
+    console.log(container.scrollLeft);
+
+    if (container.scrollLeft >= 700) {
+      container.scrollLeft = -250;
+    }
+    container.scrollLeft = container.scrollLeft + 250;
+
+    console.log(container.scrollLeft);
   };
 
   return (
@@ -48,26 +57,27 @@ const NewPortfolio = () => {
 
             {openDesign ? (
               <PiArrowCircleUpLight
-                onClick={ToggleDesign}
-                size={32}
-                className="text-white flex-shrink-0 self-start text-[32px] lg:text-[64px]"
+                onClick={toggleDesign}
+                className="text-white flex-shrink-0 self-start text-[32px] lg:text-[56px]"
               />
             ) : (
               <PiArrowCircleDownLight
-                onClick={ToggleDesign}
-                size={32}
-                className="text-white flex-shrink-0 self-start text-[32px] lg:text-[64px]"
+                onClick={toggleDesign}
+                className="text-white flex-shrink-0 self-start text-[32px] lg:text-[56px]"
               />
             )}
           </div>
 
           {/* Portfolio images */}
           <div className={openDesign ? "block" : "hidden"}>
-            <div className="max-lg:w-full overflow-hidden flex max-lg:justify-between gap-x-[15px] max-lg:mt-[22px] mt-[30px] ">
+            <div
+              ref={sliderRefDesign}
+              className="max-lg:w-full overflow-hidden flex max-lg:justify-between gap-x-[15px] max-lg:mt-[22px] mt-[30px] "
+            >
               {images.map((item, index) => (
                 <Link
                   key={index}
-                  className="w-[250px] flex-shrink-0 block lg:w-[300px] h-[142px]"
+                  className=" w-[250px] flex-shrink-0 block lg:w-[300px] h-[142px]"
                   to={item.path}
                 >
                   <img
@@ -77,15 +87,13 @@ const NewPortfolio = () => {
                   />
                 </Link>
               ))}
-            </div>
-
-            {/* <button className="md:left-[90%] lg:left-[100%] w-[80px] py-1 rounded-lg absolute left-[75%] bottom-[30%] bordeer-none outline-none bg-white">
-              View all
-            </button> */}
-
-            {/* <Button  className="md:left-[50%] lg:left-[60%] text-black absolute left-[60%] bottom-[30%] bordeer-none outline-none bg-white" >
+              <button
+                onClick={() => scrollFunction(sliderRefDesign.current)}
+                className="md:left-[90%] lg:left-[95%] w-[80px] py-1 rounded-lg absolute left-[85%] bottom-[30%] border-none outline-none bg-white text-[12px] md:text-lg"
+              >
                 View all
-            </Button> */}
+              </button>
+            </div>
           </div>
         </div>
 
@@ -105,13 +113,13 @@ const NewPortfolio = () => {
 
             {openPortfolio ? (
               <PiArrowCircleUpLight
-                onClick={TogglePortfolio}
-                className="text-white self-start text-[32px] lg:text-[64px]"
+                onClick={togglePortfolio}
+                className="text-white self-start text-[32px] lg:text-[56px]"
               />
             ) : (
               <PiArrowCircleDownLight
-                onClick={TogglePortfolio}
-                className="text-white self-start text-[32px] lg:text-[64px]"
+                onClick={togglePortfolio}
+                className="text-white self-start text-[32px] lg:text-[56px]"
               />
             )}
           </div>
@@ -121,6 +129,7 @@ const NewPortfolio = () => {
             <div className="max-lg:w-full overflow-hidden flex max-lg:justify-between gap-x-[15px] max-lg:mt-[22px] mt-[30px] ">
               {images.map((item, index) => (
                 <Link
+                  ref={sliderRefPortfolio}
                   key={index}
                   className="w-[250px] flex-shrink-0 block lg:w-[300px] h-[142px]"
                   to={item.path}
@@ -132,6 +141,12 @@ const NewPortfolio = () => {
                   />
                 </Link>
               ))}
+              <button
+                onClick={() => scrollFunction(sliderRefPortfolio.current)}
+                className="md:left-[90%] lg:left-[95%] w-[80px] py-1 rounded-lg absolute left-[85%] bottom-[30%] border-none outline-none bg-white text-[12px] md:text-lg"
+              >
+                View all
+              </button>
             </div>
           </div>
         </div>

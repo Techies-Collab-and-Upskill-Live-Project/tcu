@@ -22,4 +22,23 @@ export const images = [
         path: "https://www.behance.net/gallery/197500939/Nestify"
     }
 ]
+export const DevelopmentImages = [
+    {
+        img: img1,
+        path: 
+        "https://www.behance.net/gallery/190653037/EDUVERSE-A-UIUX-CASE-STUDY"
+    },
+    {
+        img: img2,
+        path: "https://github.com/Theecypher/TimeSync",
+    },
+    {
+        img: img3,
+        path: "https://github.com/Techies-Collab-and-Upskill-Live-Project/Health-and-Fitness-Frontend"
+    },
+    {
+        img: img4,
+        path: "https://charity-donation.onrender.com/home"
+    }
+]
 
