@@ -16,12 +16,12 @@ const NewPortfolio = () => {
   const scrollFunction = (container) => {
     console.log(container.scrollLeft);
 
-    if (container.scrollLeft >= 700) {
-      container.scrollLeft = -250;
+    let maxScrollWidth = container.scrollWidth - container.clientWidth
+
+    if (container.scrollLeft === maxScrollWidth) {
+      container.scrollLeft = 0
     }
     container.scrollLeft = container.scrollLeft + 250;
-
-    console.log(container.scrollLeft);
   };
 
   return (
@@ -128,7 +128,7 @@ const NewPortfolio = () => {
           <div className={openPortfolio ? "block" : "hidden"}>
             <div
               ref={sliderRefPortfolio}
-              className="max-lg:w-full overflow-hidden flex max-lg:justify-between gap-x-[15px] max-lg:mt-[22px] mt-[30px] "
+              className="max-lg:w-full transition-all ease-out duration-100 overflow-hidden flex max-lg:justify-between gap-x-[15px] max-lg:mt-[22px] mt-[30px] "
             >
               {DevelopmentImages.map((item, index) => (
                 <Link
