@@ -1,6 +1,6 @@
 import { PiArrowCircleDownLight, PiArrowCircleUpLight } from "react-icons/pi";
 import { useRef, useState } from "react";
-import { images } from "./NewPortfolioData";
+import { DevelopmentImages, images } from "./NewPortfolioData";
 import { Link } from "react-router-dom";
 
 const NewPortfolio = () => {
@@ -114,24 +114,26 @@ const NewPortfolio = () => {
             {openPortfolio ? (
               <PiArrowCircleUpLight
                 onClick={togglePortfolio}
-                className="text-white self-start text-[32px] lg:text-[56px]"
+                className="text-white flex-shrink-0 self-start text-[32px] lg:text-[56px]"
               />
             ) : (
               <PiArrowCircleDownLight
                 onClick={togglePortfolio}
-                className="text-white self-start text-[32px] lg:text-[56px]"
+                className="text-white flex-shrink-0 self-start text-[32px] lg:text-[56px]"
               />
             )}
           </div>
 
           {/* Portfolio images */}
           <div className={openPortfolio ? "block" : "hidden"}>
-            <div className="max-lg:w-full overflow-hidden flex max-lg:justify-between gap-x-[15px] max-lg:mt-[22px] mt-[30px] ">
-              {images.map((item, index) => (
+            <div
+              ref={sliderRefPortfolio}
+              className="max-lg:w-full overflow-hidden flex max-lg:justify-between gap-x-[15px] max-lg:mt-[22px] mt-[30px] "
+            >
+              {DevelopmentImages.map((item, index) => (
                 <Link
-                  ref={sliderRefPortfolio}
                   key={index}
-                  className="w-[250px] flex-shrink-0 block lg:w-[300px] h-[142px]"
+                  className=" w-[250px] flex-shrink-0 block lg:w-[300px] h-[142px]"
                   to={item.path}
                 >
                   <img
@@ -143,7 +145,7 @@ const NewPortfolio = () => {
               ))}
               <button
                 onClick={() => scrollFunction(sliderRefPortfolio.current)}
-                className="md:left-[90%] lg:left-[95%] w-[80px] py-1 rounded-lg absolute left-[85%] bottom-[30%] border-none outline-none bg-white text-[12px] md:text-lg"
+                className="md:left-[90%] md:hidden lg:left-[95%] lg:block w-[80px] py-1 rounded-lg absolute left-[85%] bottom-[30%] border-none outline-none bg-white text-[12px] md:text-lg"
               >
                 View all
               </button>
