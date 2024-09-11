@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import us from './assets/Us.svg';
 import Button from '../../components/Button';
 import wireclay from './assets/Telephone wire clay.svg';
@@ -25,7 +25,8 @@ import linkedin from './assets/linkedin.svg';
 import twitter from './assets/twitter.svg';
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { MdKeyboardArrowRight, MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
+import { MdKeyboardArrowRight, MdKeyboardArrowLeft, MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
+import { Navigation } from 'swiper/modules';
 
 
 
@@ -162,6 +163,8 @@ const reviews = [
 const firstFourTeam = team.slice(0, 4);
 const remainingTeam = team.slice(4);
 
+const swiperRef = useRef(null);
+
   return (
     <div className='bg-[#121212] text-[#ffffff] w-full h-full px-[20px] md:px-[50px] font-satoshi'>
       <div className='flex flex-col md:flex-row gap-[20px]'>
@@ -243,41 +246,17 @@ const remainingTeam = team.slice(4);
       <div className='flex'><img src={spiralclay} alt='spiralclay'/></div>
       <div className='flex flex-col items-center pt-[50px]'>
         <p className='md:text-[48px] text-[20px] font-[700]'>Our Team</p>
-      {/* <div className='flex flex-wrap justify-center gap-[1rem] md:gap-[5rem] pt-[15px]'>
-      <div className='flex flex-wrap gap-[1rem] justify-center'>
-        {team && team.map((teams, index) => (
-          <div key={index} className='flex flex-col items-center'>
-            <div className='overflow-hidden rounded-t-[12px]'>
-            <img 
-              src={teams.img} 
-              alt='profile' 
-              className='md:w-[260px] w-[260px] h-[180px]' 
-            />
-            </div>
-            <div 
-              className='bg-[#181818] md:w-[260px] w-[260px] md:h-[150px] h-[140px] mt-[-12px] rounded-b-[12px] flex flex-col justify-center items-center'
-            >
-              <p className='md:text-[20px] text-[16px] font-[700] text-center'>{teams.name}</p>
-              <p className='md:text-[14px] text-[12px] font-[400] w-[180px] text-center'>{teams.role}</p>
-              <div className='flex gap-[1.5rem] pt-[20px] items-center'>
-                <IoLogoLinkedin className='w-[20px] h-[20px]'/>
-                <RiTwitterXFill className='w-[20px] h-[20px]'/>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-      <img 
-        src={ringclay} 
-        alt='ringclay' 
-        className='md:ml-[-60px] flex justify-center mt-4 md:mt-0' 
-      />
-    </div> */}
+      
        {/* Swiper for large screens */}
        <div className='hidden lg:block w-full'>
           <Swiper
             spaceBetween={50}
             slidesPerView={4}
+            modules={[Navigation]} 
+            navigation={{
+              nextEl: '.swiper-button-next', 
+              prevEl: '.swiper-button-prev',
+            }}
           >
             {team.map((member, index) => (
               <SwiperSlide key={index}>
@@ -299,7 +278,12 @@ const remainingTeam = team.slice(4);
               </SwiperSlide>
             ))}
           </Swiper>
-          <button className='absolute right-[10px] top-[73%] transform translate-y-[-50%] bg-white text-black p-2 rounded-full'>
+          {/* Previous button */}
+          <button className='swiper-button-prev absolute left-[10px] top-[73%] transform translate-y-[-50%] bg-white text-black p-2 rounded-full'>
+              <MdKeyboardArrowLeft />
+            </button>
+            {/* Next button */}
+          <button className='swiper-button-next absolute right-[10px] top-[73%] transform translate-y-[-50%] bg-white text-black p-2 rounded-full'>
           <MdKeyboardArrowRight />
           </button>
         </div>
