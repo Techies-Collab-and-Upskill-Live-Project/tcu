@@ -12,10 +12,12 @@ import { Toaster } from "sonner";
 import UserList from "./components/Admin/UserList";
 import UserDetails from "./components/Admin/UserDetails";
 import JoinClosed from "./pages/join/JoinClosed";
+import ScrollToTop from "./ScrollToTop";
 
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Toaster />
       <TopNav />
       <div className="relative pt-[54px] lg:pt-[105px] bg-[#121212] font-satoshi">
