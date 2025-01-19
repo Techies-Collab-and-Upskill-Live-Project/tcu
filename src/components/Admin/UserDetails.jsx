@@ -36,8 +36,8 @@ const UserDetails = () => {
     );
   if (error)
     return (
-      <div className="flex justify-center items-center h-screen">
-        Error: {error}
+      <div className="flex justify-center items-center h-screen text-white text-7xl">
+        Application not found
       </div>
     );
 
