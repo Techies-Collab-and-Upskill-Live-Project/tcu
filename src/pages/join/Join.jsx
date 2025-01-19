@@ -137,8 +137,6 @@ const Join = ({ className, formClass, inputClass }) => {
       showToast("Please select a skill and experience level.", "error");
       return;
     }
-    console.log("formEntries", formEntries);
-    console.log("isValid", isValid);
 
     if (
       !isValid ||
