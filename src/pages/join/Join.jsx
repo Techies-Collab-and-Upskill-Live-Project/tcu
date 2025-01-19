@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { twMerge } from "tailwind-merge";
 import axios from "axios";
-// import { toast } from "sonner";
 import { showToast } from "../../components/toaster";
 import { IoCloseSharp } from "react-icons/io5";
 import { FaCheck } from "react-icons/fa6";
-// import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import InputField from "./components/InputField";
 import RadioGroup from "./components/RadioGroup";
@@ -66,6 +64,19 @@ const Join = ({ className, formClass, inputClass }) => {
     return validator.isURL(url);
   };
 
+  const validateBirthdate = (month, day) => {
+    const monthNum = parseInt(month, 10);
+    const dayNum = parseInt(day, 10);
+    return (
+      !isNaN(monthNum) &&
+      !isNaN(dayNum) &&
+      monthNum >= 1 &&
+      monthNum <= 12 &&
+      dayNum >= 1 &&
+      dayNum <= 31
+    );
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     let isValid = true;
@@ -78,7 +89,7 @@ const Join = ({ className, formClass, inputClass }) => {
       const [field, part] = name.split("-");
       const formattedValue = value.padStart(2, "0");
       const newBirthdate = { ...formEntries.birthdate, [part]: formattedValue };
-      isValid = newBirthdate.month && newBirthdate.day;
+      isValid = validateBirthdate(newBirthdate.month, newBirthdate.day);
       const birthdateFormatted = `1990-${newBirthdate.month}-${newBirthdate.day}`;
 
       setFormEntries((prevVals) => ({
@@ -120,14 +131,22 @@ const Join = ({ className, formClass, inputClass }) => {
       return;
     }
     const isValid = Object.values(validity).every((v) => v);
+
+    // Ensure skill and experience are not empty
+    if (!formEntries.skill || !formEntries.experience) {
+      showToast("Please select a skill and experience level.", "error");
+      return;
+    }
+    console.log("formEntries", formEntries);
+    console.log("isValid", isValid);
+
     if (
       !isValid ||
-      Object.values(formEntries).some(
-        (val) =>
-          val === "" &&
-          val !== formEntries.birthdate &&
-          val !== formEntries.certificate
-      )
+      Object.entries(formEntries).some(([key, value]) => {
+        return (
+          value === "" && key !== "certificate"
+        );
+      })
     ) {
       showToast("Please fill out all required fields correctly.", "error");
       setIsShaking(true);
@@ -154,9 +173,21 @@ const Join = ({ className, formClass, inputClass }) => {
         }
       );
       setIsLoading(false);
+      setFormEntries({
+        certificate: "",
+        email: "",
+        full_name: "",
+        twitter_handle: "",
+        linkedin: "",
+        skill: "",
+        experience: "",
+        about_skill: "",
+        commitment: false,
+        birthdate: { month: "", day: "" },
+      });
       setModalMessage({
         type: "success",
-        message: "Application Submitted Successfully!",
+        message: response?.data?.detail,
       });
     } catch (error) {
       setIsLoading(false);
@@ -315,6 +346,12 @@ const Join = ({ className, formClass, inputClass }) => {
           type={modalMessage.type}
           onClose={() => setModalMessage({ type: "", message: "" })}
         >
+          <button
+            className="absolute top-3 right-3 text-white text-[20px]"
+            onClick={() => setModalMessage({ type: "", message: "" })}
+          >
+            <IoCloseSharp />
+          </button>
           {modalMessage.type === "success" ? (
             <>
               <div className="flex flex-col justify-center align-middle items-center">
