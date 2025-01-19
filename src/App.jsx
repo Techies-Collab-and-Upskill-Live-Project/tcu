@@ -25,6 +25,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="about" element={<About />} />
           <Route path="hire-us" element={<Hire />} />
+          <Route path="join-secret-thank-you-admin" element={<Join />} />
           <Route path="join" element={<Navigate to="/join-closed" replace />} />
           <Route path="join-closed" element={<JoinClosed />} />
           <Route path="portfolio" element={<Portfolio />} />

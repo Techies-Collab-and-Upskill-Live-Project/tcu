@@ -5,9 +5,9 @@ const JoinClosed = () => {
   return (
     <div className="flex items-center justify-center min-h-screen bg-[#121212] text-white">
       <div className="text-center">
-        <FaExclamationTriangle className="mx-auto text-9xl text-yellow-500" />
-        <h1 className="text-5xl font-bold mt-4">Oops</h1>
-        <p className="text-3xl mt-4">Registration for this cohort is over</p>
+        {/* <FaExclamationTriangle className="mx-auto text-9xl text-yellow-500" /> */}
+        {/* <h1 className="text-5xl font-bold mt-4">Oops</h1> */}
+        <p className="text-3xl mt-4">Registration for cohort 3.0 Loading...</p>
         <p className="text-2xl mt-2">Join our community to stay updated</p>
         <div className="flex justify-center mt-4 space-x-2">
           <FaHandPointDown className="text-3xl text-yellow-500 animate-bounce" />
