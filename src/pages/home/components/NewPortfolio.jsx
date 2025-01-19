@@ -14,7 +14,6 @@ const NewPortfolio = () => {
   const togglePortfolio = () => setOpenPortfolio(!openPortfolio);
 
   const scrollFunction = (container) => {
-    console.log(container.scrollLeft);
 
     let maxScrollWidth = container.scrollWidth - container.clientWidth
 
