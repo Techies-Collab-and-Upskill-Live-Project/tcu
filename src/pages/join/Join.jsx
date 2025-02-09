@@ -35,6 +35,7 @@ const Join = ({ className, formClass, inputClass }) => {
     full_name: "",
     twitter_handle: "",
     linkedin: "",
+    github_link: "",
     skill: "",
     experience: "",
     about_skill: "",
@@ -47,6 +48,7 @@ const Join = ({ className, formClass, inputClass }) => {
     full_name: null,
     twitter_handle: null,
     linkedin: null,
+    github_link: null,
     about_skill: null,
     birthdate: null,
     skill: null,
@@ -82,8 +84,10 @@ const Join = ({ className, formClass, inputClass }) => {
     let isValid = true;
 
     if (name === "email") isValid = validateEmail(value);
-    if (name === "twitter_handle" || name === "linkedin")
-      isValid = validateUrl(value);
+    if (name === "twitter_handle" || name === "linkedin") isValid = validateUrl(value);
+  
+    // Validate GitHub link only if it's provided
+    if (name === "github_link" && value !== "") isValid = validateUrl(value);
 
     if (name.includes("birthdate")) {
       const [field, part] = name.split("-");
@@ -130,7 +134,7 @@ const Join = ({ className, formClass, inputClass }) => {
       showToast("Invalid Linkedin URL format", "error");
       return;
     }
-    const isValid = Object.values(validity).every((v) => v);
+    const isValid = Object.values(validity).every((v) => v !== false);
 
     // Ensure skill and experience are not empty
     if (!formEntries.skill || !formEntries.experience) {
@@ -142,7 +146,7 @@ const Join = ({ className, formClass, inputClass }) => {
       !isValid ||
       Object.entries(formEntries).some(([key, value]) => {
         return (
-          value === "" && key !== "certificate"
+          value === "" && key !== "certificate" && key !== "github_link"
         );
       })
     ) {
@@ -177,6 +181,7 @@ const Join = ({ className, formClass, inputClass }) => {
         full_name: "",
         twitter_handle: "",
         linkedin: "",
+        github_link: "",
         skill: "",
         experience: "",
         about_skill: "",
@@ -262,6 +267,17 @@ const Join = ({ className, formClass, inputClass }) => {
               placeholder="Eg https://www.linkedin.com/in/account-name/"
               isValid={validity.linkedin}
               required
+              inputClass={inputClass}
+            />
+          </div>
+          <div className="mb-[20px]">
+            <InputField
+              label="Github Profile Link (Optional)"
+              name="github_link"
+              value={formEntries.github_link}
+              onChange={handleChange}
+              placeholder="Eg https://www.github.com/account-name/"
+              isValid={validity.github_link}
               inputClass={inputClass}
             />
           </div>
