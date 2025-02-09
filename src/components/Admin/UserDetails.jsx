@@ -102,6 +102,17 @@ const UserDetails = () => {
           </a>
         </p>
         <p className="mb-2">
+          <strong>Github Link:</strong>{" "}
+          <a
+            href={user.github_link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-500 hover:underline"
+          >
+            {user.github_link}
+          </a>
+        </p>
+        <p className="mb-2">
           <strong>Application Date:</strong> {formatDate(user.date_created)}
         </p>
         <p className="mb-2">
