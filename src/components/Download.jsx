@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { GoUpload } from "react-icons/go";
 import { showToast } from "./toaster";
 
-const allowedExtensions = ["jpeg", "png", "pdf", "docx"];
+const allowedExtensions = ["jpg", "jpeg", "png", "pdf", "docx"];
 
 const Download = ({ onFileSelect }) => {
   const [fileName, setFileName] = useState("");
@@ -16,7 +16,7 @@ const Download = ({ onFileSelect }) => {
       // Check file extension
       if (!allowedExtensions.includes(fileExtension)) {
         showToast(
-          "Invalid file type. Allowed types are: .jpeg, .png, .pdf, .docx",
+          "Invalid file type. Allowed types are: jpg, .jpeg, .png, .pdf, .docx",
           "error"
         );
         return;
@@ -46,6 +46,7 @@ const Download = ({ onFileSelect }) => {
           id="dropzone-file"
           type="file"
           className="hidden"
+          accept=".jpg,.jpeg,.png,.pdf,.docx"
           onChange={handleFileUpload}
         />
       </label>
