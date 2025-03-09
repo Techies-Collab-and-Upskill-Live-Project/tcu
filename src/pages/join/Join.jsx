@@ -210,7 +210,7 @@ const Join = ({ className, formClass, inputClass }) => {
     >
       <div className="flex flex-col justify-center items-center bg-[#181818]  max-w-[720px] w-full p-5 rounded-[12px]">
         <p className="md:text-[36px] text-[16px] font-[700] text-[#ffffff]">
-          TCU 2.0 Entry Form
+          TCU 3.0 Entry Form
         </p>
         <p className="md:text-[20px] text-[10px] font-[400] text-[#9c9c9c]">
           Please answer all the questions, it will help us know you better.
