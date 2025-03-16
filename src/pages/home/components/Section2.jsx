@@ -32,7 +32,7 @@ const Section2 = () => {
             <div className="flex gap-x-[47px] mt-[9px] lg:mt-[20px] text-[#EEEEEE]">
               <div className="flex flex-col">
                 <h2 className="text-[19.21px] max-lg:leading-[14.58px] lg:text-[32px] font-[900] ">
-                  5+
+                  8+
                 </h2>
                 <p className="text-[14.58px] max-lg:leading-[14.58px] lg:text-[20px] mt-[5px] lg:mt-[-5px] font-[500] leading-[27px] text-white">
                   Live projects
@@ -40,7 +40,7 @@ const Section2 = () => {
               </div>
               <div className="flex flex-col">
                 <h2 className="text-[19.21px] max-lg:leading-[14.58px] lg:text-[32px] font-[900] ">
-                  100+
+                  150+
                 </h2>
                 <p className="text-[14.58px] max-lg:leading-[14.58px] lg:text-[20px] mt-[5px] lg:mt-[-5px] font-[500] leading-[27px] text-white">
                   Interns
