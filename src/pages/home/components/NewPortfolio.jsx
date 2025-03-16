@@ -15,13 +15,19 @@ const NewPortfolio = () => {
 
   const scrollFunction = (container) => {
     console.log(container.scrollLeft);
+    const scrollLeft = container.scrollLeft;
+    const scrollAmount = 250;
 
-    let maxScrollWidth = container.scrollWidth - container.clientWidth
+    let maxScrollWidth = container.scrollWidth - container.clientWidth;
+
+    // console.log(container.scrollWidth);
+    // console.log(container.clientWidth);
+    console.log(maxScrollWidth);
 
     if (container.scrollLeft === maxScrollWidth) {
-      container.scrollLeft = 0
+      container.scrollLeft = 0;
     }
-    container.scrollLeft = container.scrollLeft + 250;
+    container.scrollLeft = container.scrollLeft + scrollAmount;
   };
 
   return (

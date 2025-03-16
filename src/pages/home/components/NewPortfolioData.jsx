@@ -2,6 +2,9 @@ import img1 from "../../../assets/portfolio1.png"
 import img2 from "../../../assets/portfolio3.png"
 import img3 from "../../../assets/portfolio4.png"
 import img4 from "../../../assets/portfolio2.png"
+import FYSI from "../../../assets/FYSI.jpg"
+import TAILORA from "../../../assets/TAILORA.jpg"
+import ECORIDE from "../../../assets/ECORIDE.jpg"
 
 export const images = [
     {
@@ -19,6 +22,18 @@ export const images = [
     },
     {
         img: img4,
+        path: "https://www.behance.net/gallery/197500939/Nestify"
+    },
+    {
+        img: FYSI,
+        path: "https://www.behance.net/gallery/197500939/Nestify"
+    },
+    {
+        img: TAILORA,
+        path: "https://www.behance.net/gallery/197500939/Nestify"
+    },
+    {
+        img: ECORIDE,
         path: "https://www.behance.net/gallery/197500939/Nestify"
     }
 ]
