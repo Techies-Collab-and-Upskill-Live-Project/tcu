@@ -178,11 +178,11 @@ const swiperRef = useRef(null);
             <p className='text-[13px] md:text-[18px] pt-[20px]'>Our team of experienced developers and designers are at the forefront of technological advancement. We leverage the latest tools and frameworks to craft robust, scalable solutions that address real-world challenges. From web and mobile applications to complex enterprise systems, we deliver results that empower our clients and shape the future.</p>
             <div className='flex gap-[20px] pt-[20px]'> 
                 <div>
-                    <p className='text-[19px] md:text-[32px] font-[700] md:font-[900]'>5+</p>
+                    <p className='text-[19px] md:text-[32px] font-[700] md:font-[900]'>8+</p>
                     <p className='text-[13px] md:text-[18px]'>Live Projects</p>
                 </div>
                 <div>
-                    <p className='text-[19px] md:text-[32px] font-[700] md:font-[900]'>100+</p>
+                    <p className='text-[19px] md:text-[32px] font-[700] md:font-[900]'>150+</p>
                     <p className='text-[13px] md:text-[18px]'>Interns</p>
                 </div>
             </div>
