@@ -8,9 +8,10 @@ const PortfolioGrid = () => {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
         {DesignData.map((item, index) => (
-          <Link
-          to={item.to}
+          <a
+          href={item.to}
           key={index}
+          target="_blank"
           className="text-white text-left py-[20px] flex flex-col items-center gap-2 justify-center"
           >
             <img src={item.img} alt={item.alt} />
@@ -18,7 +19,7 @@ const PortfolioGrid = () => {
             <p className="text-[#828282] self-start text-sm">
               {item.description}
             </p>
-          </Link>
+          </a>
         ))}
       </div>
     </div>
