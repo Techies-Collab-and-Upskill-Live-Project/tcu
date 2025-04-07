@@ -11,6 +11,7 @@ import Join from "./pages/join/Join";
 import { Toaster } from "sonner";
 import UserList from "./components/Admin/UserList";
 import UserDetails from "./components/Admin/UserDetails";
+import EmailUser from "./components/Admin/EmailUser";
 import JoinClosed from "./pages/join/JoinClosed";
 import ScrollToTop from "./ScrollToTop";
 
@@ -33,6 +34,7 @@ function App() {
           <Route path="contact" element={<ContactPage />} />
           <Route path="user" element={<UserList />} />
           <Route path="application/:id" element={<UserDetails />} />
+          <Route path="email-user" element={<EmailUser />} />
         </Routes>
         <Footer />
       </div>
