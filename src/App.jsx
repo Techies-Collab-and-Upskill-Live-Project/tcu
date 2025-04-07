@@ -4,7 +4,7 @@ import About from "./pages/about/About";
 import TopNav from "./components/TopNav";
 import Footer from "./components/Footer";
 import Hire from "./pages/hire/Hire";
-import PortfolioGrid from "./pages/portfolio/PortfolioGrid";
+// import PortfolioGrid from "./pages/portfolio/PortfolioGrid";
 import Portfolio from "./pages/portfolio/Portfolio";
 import ContactPage from "./pages/contactPage/ContactPage";
 import Join from "./pages/join/Join";
