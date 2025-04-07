@@ -119,7 +119,7 @@ const UserDetails = () => {
           <strong>Certificate:</strong>{" "}
           {user.certificate ? (
             <a
-              href={user.certificate}
+              href={decodeURIComponent(user.certificate)}
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-500 hover:underline"
