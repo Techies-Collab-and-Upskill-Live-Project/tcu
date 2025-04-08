@@ -96,7 +96,7 @@ const SuccessEmailForm = ({ className, formClass, inputClass }) => {
     >
       <div className="flex flex-col justify-center items-center bg-[#181818] max-w-[720px] w-full p-5 rounded-[12px]">
         <p className="md:text-[36px] text-[16px] font-[700] text-[#ffffff]">
-          TCU 3.0 Send Success Email Form
+          TCU 3.0 Success Email Form
         </p>
         <p className="md:text-[20px] text-[10px] font-[400] text-[#9c9c9c]">
           Send emails to successful applicants. Required fields are indicated
