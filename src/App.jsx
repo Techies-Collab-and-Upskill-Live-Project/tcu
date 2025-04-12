@@ -1,4 +1,9 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 import Home from "./pages/home/Home";
 import About from "./pages/about/About";
 import TopNav from "./components/TopNav";
@@ -12,6 +17,7 @@ import { Toaster } from "sonner";
 import UserList from "./components/Admin/UserList";
 import UserDetails from "./components/Admin/UserDetails";
 import EmailUser from "./components/Admin/EmailUser";
+import RejectionEmail from "./components/Admin/RejectionEmail";
 import JoinClosed from "./pages/join/JoinClosed";
 import ScrollToTop from "./ScrollToTop";
 
@@ -35,6 +41,7 @@ function App() {
           <Route path="user" element={<UserList />} />
           <Route path="application/:id" element={<UserDetails />} />
           <Route path="email-user" element={<EmailUser />} />
+          <Route path="rejection-email" element={<RejectionEmail />} />
         </Routes>
         <Footer />
       </div>
